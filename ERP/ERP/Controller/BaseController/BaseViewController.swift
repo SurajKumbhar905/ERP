@@ -16,33 +16,45 @@ class BaseViewController: UIViewController {
     }
     
 
-    func setupNAvigationToMainScreen(backButtonHide : Bool = false) {
+    func setupNAvigationToMainScreen(backButtonHide : Bool = false , titleText : String = "")
+    {
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        self.navigationItem.rightBarButtonItem = setupProfile()
 
-//
-//        let attributes = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Light", size: 22)!]
-//        UINavigationBar.appearance().titleTextAttributes = attributes
+        if !backButtonHide {
+            self.navigationItem.leftBarButtonItem = setupBackButton()
+            navigationItem.titleView = setupTitle(setTitleText: titleText)
+        }
         
-//        self.navigationController?.navigationBar.backgroundColor =  UIColor.green
+    }
+    
+    
+    func setupBackButton()-> UIBarButtonItem{
         
-       
-
-        let backButtonView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        let profileView = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        let backButtonView = UIView(frame: CGRect(x: 20, y: 20, width: 50, height: 50))
+        let backimageView = UIImageView(frame: CGRect(x: 20, y: 20, width: 20, height: 30))
         
-        let backimageView = UIImageView(frame: CGRect(x: 20, y: 10, width: 20, height: 30))
-        
-        let profileImageView = UIImageView(frame: CGRect(x: -10, y: 0, width: 60, height: 60))
-
         if let imgBackArrow = UIImage(named: "backArrow") {
             backimageView.image = imgBackArrow
         }
         
+        backButtonView.addSubview(backimageView)
+        let backTap = UITapGestureRecognizer(target: self, action: #selector(backToMain))
+        backButtonView.addGestureRecognizer(backTap)
+        return UIBarButtonItem(customView: backButtonView )
+        
+        
+    }
+    
+    func setupProfile() -> UIBarButtonItem{
+        
+        let profileView = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        let profileImageView = UIImageView(frame: CGRect(x: -10, y: 0, width: 60, height: 60))
+        
         if let imageProfile = UIImage(named: "Profile_for_main") {
             profileImageView.image = imageProfile
         }
-        
-        backButtonView.addSubview(backimageView)
-        
+  
         let badge = UILabel(frame: CGRect(x: -10, y: 40, width: 20, height: 20))
         badge.text = "2"
         badge.font = UIFont.systemFont(ofSize: 14.0)
@@ -50,35 +62,32 @@ class BaseViewController: UIViewController {
         badge.textColor = UIColor.white
         badge.layer.cornerRadius = badge.frame.height/2
         badge.layer.masksToBounds = true
-        
-//        badge.sizeToFit()
         badge.textAlignment = .center
+
         
-//        profileView.addSubview(badge)
         profileView.addSubview(profileImageView)
         profileView.addSubview(badge)
         
-        let backTap = UITapGestureRecognizer(target: self, action: #selector(backToMain))
-        view.addGestureRecognizer(backTap)
-
-        self.navigationItem.setHidesBackButton(true, animated: true)
-        let leftBarButtonItem = UIBarButtonItem(customView: backButtonView )
-        let rightBarButtonItem = UIBarButtonItem(customView: profileView )
-        if !backButtonHide {
-            self.navigationItem.leftBarButtonItem = leftBarButtonItem
-        }
         
-        self.navigationItem.rightBarButtonItem = rightBarButtonItem
-        
-//        addBadge(itemvalue: "2")
-        
-        
-        
-        
+        return UIBarButtonItem(customView: profileView )
     }
     
+    
+    func setupTitle(setTitleText : String )->UIView {
+        
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        let title = UILabel(frame:CGRect(x: 0, y: 5, width: 200, height: 50) )
+        title.text = setTitleText
+        title.font = UIFont.boldSystemFont(ofSize: 27.0)
+        title.textAlignment = .center
+        titleView.addSubview(title)
+        return titleView
+    }
+    
+    
    @objc func backToMain(){
-//       tabBarItem[0]
+       print("suraj")
+       TabBarViewController.Instance?.selectedIndex = 1
     }
     
     

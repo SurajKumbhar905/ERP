@@ -13,12 +13,13 @@ class ProjectViewController: BaseViewController {
         super.viewDidLoad()
 
         title = "Project"
+        
         // Do any additional setup after loading the view.
     }
     
 
     override func viewWillAppear(_ animated: Bool) {
-        setupNAvigationToMainScreen()
+        setupNAvigationToMainScreen(titleText: self.title ?? "")
     }
     /*
     // MARK: - Navigation

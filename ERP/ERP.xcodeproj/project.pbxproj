@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		844F109329C70C4900A7FE42 /* DashBoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F109229C70C4900A7FE42 /* DashBoardCollectionViewCell.swift */; };
 		844F109529C71B7B00A7FE42 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F109429C71B7B00A7FE42 /* DummyData.swift */; };
+		845B56CC29C8A59E00680DEB /* EmployeeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845B56CB29C8A59E00680DEB /* EmployeeCollectionViewCell.swift */; };
 		8471C51729C5C96300207DF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8471C51629C5C96300207DF6 /* AppDelegate.swift */; };
 		8471C51929C5C96300207DF6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8471C51829C5C96300207DF6 /* SceneDelegate.swift */; };
 		8471C51B29C5C96300207DF6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8471C51A29C5C96300207DF6 /* LoginViewController.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		844F109229C70C4900A7FE42 /* DashBoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		844F109429C71B7B00A7FE42 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		845B56CB29C8A59E00680DEB /* EmployeeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCollectionViewCell.swift; sourceTree = "<group>"; };
 		8471C51329C5C96300207DF6 /* ERP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8471C51629C5C96300207DF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8471C51829C5C96300207DF6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				844F109229C70C4900A7FE42 /* DashBoardCollectionViewCell.swift */,
+				845B56CB29C8A59E00680DEB /* EmployeeCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845B56CC29C8A59E00680DEB /* EmployeeCollectionViewCell.swift in Sources */,
 				844F109329C70C4900A7FE42 /* DashBoardCollectionViewCell.swift in Sources */,
 				8471C53E29C6079500207DF6 /* textFeildExtension.swift in Sources */,
 				8471C53A29C5FA2800207DF6 /* ButtonExtension.swift in Sources */,

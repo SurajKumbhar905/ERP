@@ -28,14 +28,14 @@ class LoginViewController: UIViewController {
         
         usernameLabel.textColor = UIColor.text.textColorLevel2
         passwordLabel.textColor = UIColor.text.textColorLevel2
-        
-       
-        
+
+
+
         userNameTextFeild.addTextFieldAttriute(placeholder: Constant.Login.usernamePlaceHolder, backgroundColor: UIColor.textFeildBackground.textFeild, cornerRedius: 12)
         passwordTextFeild.addTextFieldAttriute(placeholder: Constant.Login.passwordPlaceholder, backgroundColor: UIColor.textFeildBackground.textFeild, cornerRedius: 12)
-        
-        
-        
+
+
+
         loginButton.addButtonAttribute(buttonText: Constant.Login.loginButtonText, conrnerRedius: 15, backGroundColor: UIColor.Button.loginButton, buttonTextColor: UIColor.buttonText.buttonText1 , buttonTextFont: 22)
 
         loginWithEmsButton.addButtonAttribute(buttonText: Constant.Login.loginButtonTextEms, conrnerRedius: 15, backGroundColor: UIColor.Button.loginWithEMS, buttonTextColor: UIColor.buttonText.buttonText2 , buttonTextFont: 22)

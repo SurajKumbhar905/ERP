@@ -11,9 +11,11 @@ class TabBarViewController: UITabBarController {
     
     @IBOutlet var tabBAr: UITabBar!
     
+    static var Instance: TabBarViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        TabBarViewController.Instance = self
         
         tabBAr.items?.first?.title = "Employee"
         tabBAr.items?[1].title = "Dashboard"

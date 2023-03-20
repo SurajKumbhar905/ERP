@@ -15,47 +15,44 @@ class EmployeeViewController: BaseViewController {
         
         title = "Employee"
         
-        // Do any additional setup after loading the view.
-      
-    }
-    
-  
-    
-    override func viewWillAppear(_ animated: Bool) {
-      
-       setupNAvigationToMainScreen()
-        }
-    
-    
-    
-//    func setNavigationBar() {
-//
-//        let view = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-//        let imageView = UIImageView(frame: CGRect(x: 20, y: 10, width: 20, height: 30))
-//
-//        if let imgBackArrow = UIImage(named: "backArrow") {
-//            imageView.image = imgBackArrow
-//        }
-//        view.addSubview(imageView)
-//        let backTap = UITapGestureRecognizer(target: self, action: #selector(backToMain))
-//        view.addGestureRecognizer(backTap)
-//
-//        let a = navigationItem.title
-//        self.navigationItem.setHidesBackButton(true, animated: true)
-//        let leftBarButtonItem = UIBarButtonItem(customView: view ?? UIView())
-//        self.navigationItem.leftBarButtonItem = leftBarButtonItem
-//    }
-    
-    
-    
-//    @objc func backToMain() {
-//            self.navigationController?.popViewController(animated: true)
-//    }
-    
-
+        
         
     }
     
+    
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        
+        setupNAvigationToMainScreen(titleText: self.title ?? "")
+    }
+    
+    
+    
+    
+    
+    
+}
 
- 
+
+extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDataSource{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 100
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let card = collectionView.dequeueReusableCell(withReuseIdentifier: "EmployeeCell", for: indexPath) as! EmployeeCollectionViewCell
+        
+        card.addEmployeeAttribute()
+//        card.employeeName.text = "Kamakshi Prabhuajgavkar"
+//        card.employeeCard.backgroundColor = .red
+//        card.employeeCard.layer.cornerRadius = 15
+        return card
+    }
+    
+    
+}
+
+
 

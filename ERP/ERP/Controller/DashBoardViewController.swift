@@ -22,7 +22,7 @@ class DashBoardViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         print("dashboard")
         navigationItem.title = ""
-        setupNAvigationToMainScreen(backButtonHide: true)
+        setupNAvigationToMainScreen(backButtonHide: true )
        
     }
 
