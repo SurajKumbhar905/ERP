@@ -207,6 +207,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="Filter_Image" imagePadding="0.0"/>
+                                <connections>
+                                    <segue destination="rfB-6U-Pe4" kind="presentation" id="3v4-IV-dtH"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Ba-bR-vSl">
                                 <rect key="frame" x="0.0" y="229" width="414" height="584"/>
@@ -302,6 +305,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRn-3I-LAj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-286.95652173913044" y="1555.5803571428571"/>
+        </scene>
+        <!--Employee Filter View Controller-->
+        <scene sceneID="BLV-i7-p9o">
+            <objects>
+                <viewController id="rfB-6U-Pe4" customClass="EmployeeFilterViewController" customModule="ERP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GW7-Oo-VDB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjQ-pr-BqU">
+                                <rect key="frame" x="0.0" y="342" width="414" height="500"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="yOl-lX-Xzy"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="z8v-f2-hKi"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="jjQ-pr-BqU" secondAttribute="bottom" id="74M-nj-H00"/>
+                            <constraint firstItem="z8v-f2-hKi" firstAttribute="trailing" secondItem="jjQ-pr-BqU" secondAttribute="trailing" id="8Eg-vQ-Ibu"/>
+                            <constraint firstItem="jjQ-pr-BqU" firstAttribute="leading" secondItem="z8v-f2-hKi" secondAttribute="leading" id="Ud6-72-fGK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="testView" destination="jjQ-pr-BqU" id="yPe-b2-irj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XfB-uM-HJm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-311" y="2300"/>
         </scene>
         <!--Dash Board View Controller-->
         <scene sceneID="4ce-m4-vbC">

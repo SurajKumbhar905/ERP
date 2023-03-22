@@ -24,7 +24,8 @@ class EmployeeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool)
     {
         
-        setupNAvigationToMainScreen(titleText: self.title ?? "")
+        setUpNavigation()
+//        setupNAvigationToMainScreen(titleText: self.title ?? "")
     }
     
     

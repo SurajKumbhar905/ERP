@@ -15,7 +15,71 @@ class BaseViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    func setUpNavigation(){
+        self.navigationController?.navigationBar.isHidden = true
+        view.addSubview(backbutton())
+        view.addSubview(setUpTitleView())
+        view.addSubview(profileView())
+        
+    }
 
+    
+    func setUpTitleView()-> UIView{
+        
+        let titleView = UIView(frame: CGRect(x: 90, y: view.safeAreaTop, width: 200, height: 50))
+        let title = UILabel(frame:CGRect(x: 0, y: 5, width: 200, height: 50) )
+        title.text = "setTitleText"
+        title.font = UIFont.boldSystemFont(ofSize: 27.0)
+        title.textAlignment = .center
+        titleView.addSubview(title)
+        return titleView
+    }
+    
+    func profileView() -> UIView{
+        
+        let profileView = UIView(frame: CGRect(x: view.frame.maxX - 75, y: view.safeAreaTop, width: 60, height: 60))
+        let profileImageView = UIImageView(frame: CGRect(x: -10, y: 0, width: 60, height: 60))
+        
+        if let imageProfile = UIImage(named: "Profile_for_main") {
+            profileImageView.image = imageProfile
+        }
+  
+        let badge = UILabel(frame: CGRect(x: -10, y: 40, width: 20, height: 20))
+        badge.text = "2"
+        badge.font = UIFont.systemFont(ofSize: 14.0)
+        badge.backgroundColor = UIColor.black
+        badge.textColor = UIColor.white
+        badge.layer.cornerRadius = badge.frame.height/2
+        badge.layer.masksToBounds = true
+        badge.textAlignment = .center
+
+        
+        profileView.addSubview(profileImageView)
+        profileView.addSubview(badge)
+        
+        return profileView
+    }
+    
+    func backbutton () -> UIView{
+        
+        
+        let backButtonView = UIView(frame: CGRect(x: 20, y: view.safeAreaTop, width: 50, height: 50))
+        let backimageView = UIImageView(frame: CGRect(x: 20, y: 20, width: 20, height: 30))
+        
+        if let imgBackArrow = UIImage(named: "backArrow") {
+            backimageView.image = imgBackArrow
+        }
+        
+        backButtonView.addSubview(backimageView)
+        let backTap = UITapGestureRecognizer(target: self, action: #selector(backToMain))
+        backButtonView.addGestureRecognizer(backTap)
+        
+        return backButtonView
+    }
+    
+    
+    
     func setupNAvigationToMainScreen(backButtonHide : Bool = false , titleText : String = "")
     {
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -193,3 +257,31 @@ class BaseViewController: UIViewController {
 //        fatalError("init(coder:) is not implemented")
 //    }
 //}
+
+
+extension UIView {
+
+    var safeAreaBottom: CGFloat {
+         if #available(iOS 11, *) {
+            if let window = UIApplication.shared.keyWindowInConnectedScenes {
+                return window.safeAreaInsets.bottom
+            }
+         }
+         return 0
+    }
+
+    var safeAreaTop: CGFloat {
+         if #available(iOS 11, *) {
+            if let window = UIApplication.shared.keyWindowInConnectedScenes {
+                return window.safeAreaInsets.top
+            }
+         }
+         return 0
+    }
+}
+
+extension UIApplication {
+    var keyWindowInConnectedScenes: UIWindow? {
+        return windows.first(where: { $0.isKeyWindow })
+    }
+}
