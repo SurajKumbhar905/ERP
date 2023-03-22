@@ -88,11 +88,7 @@ extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDa
         {
             
             let card = collectionView.dequeueReusableCell(withReuseIdentifier: "EmployeeProjectCard", for: indexPath) as! EmployeeProjectCardCollectionViewCell
-            print("surajjj")
-//            card.addEmployeeAttribute()
-    //        card.employeeName.text = "Kamakshi Prabhuajgavkar"
-    //        card.employeeCard.backgroundColor = .red
-    //        card.employeeCard.layer.cornerRadius = 15
+            card.addprojectAttribute()
             return card
             
         }
@@ -101,9 +97,6 @@ extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDa
             let card = collectionView.dequeueReusableCell(withReuseIdentifier: "EmployeeCell", for: indexPath) as! EmployeeCollectionViewCell
             
             card.addEmployeeAttribute()
-    //        card.employeeName.text = "Kamakshi Prabhuajgavkar"
-    //        card.employeeCard.backgroundColor = .red
-    //        card.employeeCard.layer.cornerRadius = 15
             return card
         }
         
