@@ -26,6 +26,10 @@ class EmployeeViewController: BaseViewController {
     @IBOutlet var employeeEditButton: UIButton!
     
     
+    
+    @IBOutlet var employeeprojectCollectionView: UICollectionView!
+    
+    
     let button = UIButton(type: .custom)
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,17 +70,44 @@ class EmployeeViewController: BaseViewController {
 extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        
+        
+        
+        if collectionView == self.employeeprojectCollectionView {
+            
+               return 2
+            
+           } else {
+               return 100
+           }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let card = collectionView.dequeueReusableCell(withReuseIdentifier: "EmployeeCell", for: indexPath) as! EmployeeCollectionViewCell
         
-        card.addEmployeeAttribute()
-//        card.employeeName.text = "Kamakshi Prabhuajgavkar"
-//        card.employeeCard.backgroundColor = .red
-//        card.employeeCard.layer.cornerRadius = 15
-        return card
+        if collectionView == self.employeeprojectCollectionView
+        {
+            
+            let card = collectionView.dequeueReusableCell(withReuseIdentifier: "EmployeeProjectCard", for: indexPath) as! EmployeeProjectCardCollectionViewCell
+            print("surajjj")
+//            card.addEmployeeAttribute()
+    //        card.employeeName.text = "Kamakshi Prabhuajgavkar"
+    //        card.employeeCard.backgroundColor = .red
+    //        card.employeeCard.layer.cornerRadius = 15
+            return card
+            
+        }
+        else
+        {
+            let card = collectionView.dequeueReusableCell(withReuseIdentifier: "EmployeeCell", for: indexPath) as! EmployeeCollectionViewCell
+            
+            card.addEmployeeAttribute()
+    //        card.employeeName.text = "Kamakshi Prabhuajgavkar"
+    //        card.employeeCard.backgroundColor = .red
+    //        card.employeeCard.layer.cornerRadius = 15
+            return card
+        }
+        
+        
     }
     
     

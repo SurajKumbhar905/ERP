@@ -420,18 +420,19 @@
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TBI-kq-Xkg">
                                         <rect key="frame" x="0.0" y="399.33333333333343" width="414" height="240.66666666666669"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bQz-Qu-OjT">
+                                        <color key="backgroundColor" red="0.3411764706" green="0.43529411759999997" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bQz-Qu-OjT">
                                             <size key="itemSize" width="270" height="220"/>
+                                            <size key="estimatedItemSize" width="270" height="220"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pmh-Ji-GTK">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="EmployeeProjectCardCollectionViewCell" reuseIdentifier="EmployeeProjectCard" id="pmh-Ji-GTK" customClass="EmployeeProjectCardCollectionViewCell" customModule="ERP" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="10.333333333333334" width="270" height="220"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5Hb-VF-SNl">
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PCV-gO-IS5">
                                                     <rect key="frame" x="0.0" y="0.0" width="270" height="220"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
@@ -508,10 +509,11 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <viewLayoutGuide key="safeArea" id="hsx-tC-NpR"/>
                                                     <constraints>
                                                         <constraint firstItem="PzO-a5-icp" firstAttribute="leading" secondItem="hI9-rv-Sh9" secondAttribute="leading" id="08F-8B-WO5"/>
                                                         <constraint firstItem="Phz-tv-7Le" firstAttribute="leading" secondItem="uX2-8i-qWE" secondAttribute="leading" id="1kh-La-4Yh"/>
-                                                        <constraint firstItem="3ln-UU-IF8" firstAttribute="top" secondItem="5Hb-VF-SNl" secondAttribute="top" constant="30" id="DGZ-Oo-uXc"/>
+                                                        <constraint firstItem="3ln-UU-IF8" firstAttribute="top" secondItem="PCV-gO-IS5" secondAttribute="top" constant="30" id="DGZ-Oo-uXc"/>
                                                         <constraint firstItem="FPk-H6-5j9" firstAttribute="leading" secondItem="3ln-UU-IF8" secondAttribute="leading" id="Jk7-Mz-NIu"/>
                                                         <constraint firstItem="cxx-N1-4Aa" firstAttribute="leading" secondItem="Fq9-wi-jcM" secondAttribute="leading" id="KKf-YP-hf1"/>
                                                         <constraint firstItem="Fq9-wi-jcM" firstAttribute="top" secondItem="suo-VS-DYA" secondAttribute="top" id="NUO-Ut-tHt"/>
@@ -519,7 +521,7 @@
                                                         <constraint firstItem="cxx-N1-4Aa" firstAttribute="top" secondItem="uX2-8i-qWE" secondAttribute="top" id="PGW-a1-MrQ"/>
                                                         <constraint firstItem="PzO-a5-icp" firstAttribute="top" secondItem="FPk-H6-5j9" secondAttribute="top" id="Rxd-EM-2IS"/>
                                                         <constraint firstItem="hI9-rv-Sh9" firstAttribute="leading" secondItem="3ln-UU-IF8" secondAttribute="trailing" constant="35" id="SJl-Mv-6SR"/>
-                                                        <constraint firstItem="3ln-UU-IF8" firstAttribute="leading" secondItem="5Hb-VF-SNl" secondAttribute="leading" constant="20" id="Uu0-sI-kLy"/>
+                                                        <constraint firstItem="3ln-UU-IF8" firstAttribute="leading" secondItem="PCV-gO-IS5" secondAttribute="leading" constant="20" id="Uu0-sI-kLy"/>
                                                         <constraint firstItem="suo-VS-DYA" firstAttribute="leading" secondItem="FPk-H6-5j9" secondAttribute="leading" id="XdG-d2-e1S"/>
                                                         <constraint firstItem="FPk-H6-5j9" firstAttribute="top" secondItem="3ln-UU-IF8" secondAttribute="bottom" constant="15" id="ccQ-Xa-pEx"/>
                                                         <constraint firstItem="suo-VS-DYA" firstAttribute="top" secondItem="FPk-H6-5j9" secondAttribute="bottom" constant="15" id="gyS-F3-Fr3"/>
@@ -531,9 +533,17 @@
                                                         <constraint firstItem="c8r-bc-UkH" firstAttribute="top" secondItem="Phz-tv-7Le" secondAttribute="top" id="zbd-W0-gT4"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
+                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                                 <size key="customSize" width="270" height="220"/>
+                                                <connections>
+                                                    <outlet property="employeeProjectCard" destination="PCV-gO-IS5" id="EfH-4u-sj4"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="eg7-BJ-RXq" id="1vY-SY-ODW"/>
+                                            <outlet property="delegate" destination="eg7-BJ-RXq" id="lup-x8-wH9"/>
+                                        </connections>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -583,6 +593,7 @@
                         <outlet property="employeeProjectCount" destination="2Zu-aY-Rde" id="ftK-im-YF9"/>
                         <outlet property="employeeRoleLabel" destination="NYP-PF-Lhm" id="mDC-az-cfx"/>
                         <outlet property="employeeSkillSet" destination="UrN-fh-0Qz" id="S6q-G2-2gy"/>
+                        <outlet property="employeeprojectCollectionView" destination="TBI-kq-Xkg" id="c3o-ti-QwL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRn-3I-LAj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
