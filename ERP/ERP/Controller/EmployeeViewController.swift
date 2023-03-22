@@ -9,6 +9,9 @@ import UIKit
 
 class EmployeeViewController: BaseViewController {
     
+    
+    @IBOutlet var employeeDetailView: UIView!
+    
     let button = UIButton(type: .custom)
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +26,7 @@ class EmployeeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool)
     {
-        
+        employeeDetailView.isHidden = true
         setUpNavigation()
 //        setupNAvigationToMainScreen(titleText: self.title ?? "")
     }
@@ -50,6 +53,11 @@ extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDa
 //        card.employeeCard.backgroundColor = .red
 //        card.employeeCard.layer.cornerRadius = 15
         return card
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        employeeDetailView.isHidden = false
     }
     
     
