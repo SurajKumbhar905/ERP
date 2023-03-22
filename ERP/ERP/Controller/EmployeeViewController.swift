@@ -11,6 +11,20 @@ class EmployeeViewController: BaseViewController {
     
     
     @IBOutlet var employeeDetailView: UIView!
+    @IBOutlet var employeeInformationCard: UIView!
+    @IBOutlet var employeeName: UILabel!
+    @IBOutlet var employeeDesignation: UILabel!
+    
+    @IBOutlet var employeeIdLabel: UILabel!
+    @IBOutlet var employeeProjectCount: UILabel!
+    
+    
+    @IBOutlet var employeeRoleLabel: UILabel!
+    @IBOutlet var employeeSkillSet: UILabel!
+    
+    
+    @IBOutlet var employeeEditButton: UIButton!
+    
     
     let button = UIButton(type: .custom)
     override func viewDidLoad() {
@@ -18,7 +32,17 @@ class EmployeeViewController: BaseViewController {
         
         title = "Employee"
         
+        employeeInformationCard.setUpemployeeDetailCard()
+        employeeEditButton.addButtonAttribute(buttonText: "Edit", conrnerRedius: 15, backGroundColor: UIColor.Button.loginButton, buttonTextColor: UIColor.buttonText.buttonText1, buttonTextFont: 13)
         
+        employeeDesignation.textColor = UIColor.text.textColorLevel2
+        
+        employeeProjectCount.textColor = UIColor.text.textColorLevel2
+        
+        employeeSkillSet.textColor = UIColor.text.textColorLevel2
+        
+        employeeIdLabel.textColor = UIColor.text.textColorLevel2
+        employeeRoleLabel.textColor = UIColor.text.textColorLevel2
         
     }
     

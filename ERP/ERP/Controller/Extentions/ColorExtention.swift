@@ -73,6 +73,7 @@ extension UIColor{
     
     struct employeeCard {
         static let mainCard = UIColor(hexString: "#D9D9D9")
+        
     }
 }
 
