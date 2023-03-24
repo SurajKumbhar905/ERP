@@ -13,6 +13,11 @@ class EmployeeViewController: BaseViewController {
     
     static var Instance = EmployeeViewController()
     
+    @IBOutlet var employeeDetailScrollView: UIScrollView!
+    
+    @IBOutlet var employeeListCollectionView: UICollectionView!
+    
+    
     @IBOutlet var employeeDetailView: UIView!
     @IBOutlet var employeeInformationCard: UIView!
     @IBOutlet var employeeName: UILabel!
@@ -51,13 +56,21 @@ class EmployeeViewController: BaseViewController {
         employeeIdLabel.textColor = UIColor.text.textColorLevel2
         employeeRoleLabel.textColor = UIColor.text.textColorLevel2
         
+//        employeeDetailScrollView.translatesAutoresizingMaskIntoConstraints = false
+//        employeeDetailView.backgroundColor = .red
+////        let topConstraint = NSLayoutConstraint(item: employeeDetailView, attribute: .top, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .top, multiplier: 1.0, constant: 20.0)
+//        let bottomConstraint = NSLayoutConstraint(item: employeeDetailScrollView, attribute: .bottom, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: -20.0)
+////        let leadingConstraint = NSLayoutConstraint(item: employeeDetailView, attribute: .leading, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .leading, multiplier: 1.0, constant: 20.0)
+////        let trailingConstraint = NSLayoutConstraint(item: employeeDetailView, attribute: .trailing, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .trailing, multiplier: 1.0, constant: -20.0)
+//        NSLayoutConstraint.activate([ bottomConstraint])
+        
     }
     
     
     
     override func viewWillAppear(_ animated: Bool)
     {
-        employeeDetailView.isHidden = true
+        employeeDetailScrollView.isHidden = true
         setUpNavigation()
 //
 //        CGPoint newContentOffset = yourCollectionView.contentOffset;
@@ -77,6 +90,23 @@ class EmployeeViewController: BaseViewController {
 //        employeeprojectCollectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Left, animated: true)
     }
     
+    
+    
+    func pushToNew(identifier : String){
+         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
+         
+        vc.view.frame = CGRect(x: self.view.frame.width, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        self.addChild(vc)
+       self.view.addSubview(vc.view)
+       vc.view.tag = 90
+       
+       UIView.animate(withDuration: 0.5, animations: {
+       vc.view.frame = self.view.bounds
+        })
+
+    
+       
+    }
     
 }
 
@@ -127,11 +157,47 @@ extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDa
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        employeeprojectCollectionView.scrollToItem(at: [0,0], at: .right, animated: true)
-        employeeDetailView.isHidden = false
-        setUpNavigation()
-//        selectedIndexPath = indexPath
         
+        
+        if collectionView == self.employeeprojectCollectionView{
+            
+        }
+        else
+        {
+            view.bringSubviewToFront(employeeDetailScrollView)
+            employeeListCollectionView.isUserInteractionEnabled = false
+            employeeDetailScrollView.setContentOffset(.zero, animated: false)
+//            self.scrollView.setContentOffset(
+//            CGPoint(x: 0,y: -self.scrollView.contentInset.top),
+//            animated: true)
+//            employeeDetailScrollView.
+            employeeprojectCollectionView.scrollToItem(at: [0,0], at: .right, animated: true)
+            
+    //        pushToNew(identifier: "TestViewController")
+            
+            employeeDetailScrollView.isHidden = false
+            employeeDetailView.frame = CGRect(x: self.view.frame.width, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            UIView.animate(withDuration: 0.3, animations: {
+                self.employeeDetailView.frame = self.view.bounds
+             },completion: { _ in
+                                     self.employeeListCollectionView.isUserInteractionEnabled = true
+                                 })
+//
+            
+            setUpNavigation()
+            selectedIndexPath = indexPath
+        }
+        
+        
+        
+        
+        
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
+        // Always return false to prevent deselection
+        return false
     }
     
     
@@ -150,4 +216,29 @@ extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDa
 }
 
 
+extension UIViewController{
+    
+    class func loadViewController(withStoryBoard storyBoardName: String = "Main") -> Self
 
+        {
+
+            return instantiateViewController(withStoryBoard: storyBoardName)
+
+        }
+
+        
+
+        class func instantiateViewController<T>(withStoryBoard storyBoardName: String) -> T
+
+        {
+
+            let sb: UIStoryboard = UIStoryboard(name: storyBoardName, bundle: nil)
+
+            let controller  = sb.instantiateViewController(withIdentifier: String(describing: self)) as! T
+
+            return controller
+
+        }
+
+   
+}

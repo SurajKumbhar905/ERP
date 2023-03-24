@@ -23,7 +23,7 @@ class BaseViewController: UIViewController {
             print("Suraj")
             view.addSubview(backbutton())
         }
-       
+        print(view.safeAreaTop , view.safeAreaBottom , "areaaaaaa" , view.safeAreaInsets.bottom)
         view.addSubview(setUpTitleView())
         view.addSubview(profileView())
         
@@ -163,7 +163,7 @@ class BaseViewController: UIViewController {
            }
            
        }
-       EmployeeViewController.Instance.employeeDetailView.isHidden = true
+       EmployeeViewController.Instance.employeeDetailScrollView.isHidden = true
        TabBarViewController.Instance?.selectedIndex = 0
     }
     
