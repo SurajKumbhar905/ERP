@@ -18,7 +18,12 @@ class BaseViewController: UIViewController {
     
     func setUpNavigation(){
         self.navigationController?.navigationBar.isHidden = true
-        view.addSubview(backbutton())
+        print(EmployeeViewController.Instance.employeeDetailView.isHidden,"Suraj")
+        if !EmployeeViewController.Instance.employeeDetailView.isHidden{
+            print("Suraj")
+            view.addSubview(backbutton())
+        }
+       
         view.addSubview(setUpTitleView())
         view.addSubview(profileView())
         
@@ -65,6 +70,7 @@ class BaseViewController: UIViewController {
         
         
         let backButtonView = UIView(frame: CGRect(x: 20, y: view.safeAreaTop, width: 50, height: 50))
+        backButtonView.tag = 1
         let backimageView = UIImageView(frame: CGRect(x: 20, y: 20, width: 20, height: 30))
         
         if let imgBackArrow = UIImage(named: "backArrow") {
@@ -151,7 +157,14 @@ class BaseViewController: UIViewController {
     
    @objc func backToMain(){
        print("suraj")
-       TabBarViewController.Instance?.selectedIndex = 1
+       for view in self.view.subviews {
+           if (view.tag == 1){
+               view.removeFromSuperview()
+           }
+           
+       }
+       EmployeeViewController.Instance.employeeDetailView.isHidden = true
+       TabBarViewController.Instance?.selectedIndex = 0
     }
     
     

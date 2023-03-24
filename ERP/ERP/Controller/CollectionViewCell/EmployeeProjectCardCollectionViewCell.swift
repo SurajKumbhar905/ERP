@@ -23,7 +23,7 @@ extension EmployeeProjectCardCollectionViewCell{
     
     func addprojectAttribute(){
         employeeProjectCard.layer.cornerRadius = 15
-        employeeProjectCard.backgroundColor = .red
+        employeeProjectCard.backgroundColor = UIColor.employeeCard.mainCard
         employeProjectName.textColor = UIColor.text.textColorLevel2
         
         employeeReleseDate.textColor = UIColor.text.textColorLevel2

@@ -9,6 +9,9 @@ import UIKit
 
 class EmployeeViewController: BaseViewController {
     
+    var selectedIndexPath: IndexPath?
+    
+    static var Instance = EmployeeViewController()
     
     @IBOutlet var employeeDetailView: UIView!
     @IBOutlet var employeeInformationCard: UIView!
@@ -33,7 +36,7 @@ class EmployeeViewController: BaseViewController {
     let button = UIButton(type: .custom)
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        EmployeeViewController.Instance = self
         title = "Employee"
         
         employeeInformationCard.setUpemployeeDetailCard()
@@ -56,18 +59,31 @@ class EmployeeViewController: BaseViewController {
     {
         employeeDetailView.isHidden = true
         setUpNavigation()
+//
+//        CGPoint newContentOffset = yourCollectionView.contentOffset;
+//        float offset = selectedIndex * (self.view.bounds.size.width + cellSpacing);
+//        newContentOffset.x += offset;
+//        yourCollectionView.contentOffset = newContentOffset;
+       
 //        setupNAvigationToMainScreen(titleText: self.title ?? "")
     }
     
     
     
-    
+    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        var indexPath: NSIndexPath = NSIndexPath(item: 3, section: 0)
+//        employeeprojectCollectionView.scroll
+//        employeeprojectCollectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Left, animated: true)
+    }
     
     
 }
 
 
 extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDataSource{
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -84,12 +100,18 @@ extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        
+       
+        
+        
         if collectionView == self.employeeprojectCollectionView
         {
             
             let card = collectionView.dequeueReusableCell(withReuseIdentifier: "EmployeeProjectCard", for: indexPath) as! EmployeeProjectCardCollectionViewCell
             card.addprojectAttribute()
+            
             return card
+            
             
         }
         else
@@ -105,8 +127,24 @@ extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDa
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        employeeprojectCollectionView.scrollToItem(at: [0,0], at: .right, animated: true)
         employeeDetailView.isHidden = false
+        setUpNavigation()
+//        selectedIndexPath = indexPath
+        
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+           
+//           let movedItem = myDataSource.remove(at: sourceIndexPath.item)
+//           myDataSource.insert(movedItem, at: destinationIndexPath.item)
+//
+           collectionView.reloadData()
+       }
+    
+    
+    
     
     
 }
