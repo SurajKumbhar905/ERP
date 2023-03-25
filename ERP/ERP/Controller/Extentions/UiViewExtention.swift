@@ -37,6 +37,15 @@ extension UIView {
         view.layer.cornerRadius = 15
         
     }
+    
+    
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+         let mask = CAShapeLayer()
+         mask.path = path.cgPath
+         self.layer.mask = mask
+    }
+    
 }
 
 extension UIApplication {
@@ -44,3 +53,5 @@ extension UIApplication {
         return windows.first(where: { $0.isKeyWindow })
     }
 }
+
+

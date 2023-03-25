@@ -19,7 +19,8 @@ class ProjectViewController: BaseViewController {
     
 
     override func viewWillAppear(_ animated: Bool) {
-        setupNAvigationToMainScreen(titleText: self.title ?? "")
+        setUpnavigationForProject()
+//        setupNAvigationToMainScreen(titleText: self.title ?? "")
     }
     /*
     // MARK: - Navigation

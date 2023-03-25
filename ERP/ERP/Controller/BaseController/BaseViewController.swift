@@ -16,25 +16,32 @@ class BaseViewController: UIViewController {
     }
     
     
-    func setUpNavigation(){
+    func setUpNavigationForEmployee(){
         self.navigationController?.navigationBar.isHidden = true
-        print(EmployeeViewController.Instance.employeeDetailView.isHidden,"Suraj")
-        if !EmployeeViewController.Instance.employeeDetailView.isHidden{
+        print(EmployeeViewController.Instance.employeeDetailScrollView.isHidden,"Suraj")
+        if !EmployeeViewController.Instance.employeeDetailScrollView.isHidden{
             print("Suraj")
             view.addSubview(backbutton())
         }
         print(view.safeAreaTop , view.safeAreaBottom , "areaaaaaa" , view.safeAreaInsets.bottom)
-        view.addSubview(setUpTitleView())
+        view.addSubview(setUpTitleView(titleText: "Employee"))
         view.addSubview(profileView())
         
     }
+    
+    
+    func setUpnavigationForProject(){
+        self.navigationController?.navigationBar.isHidden = true
+        view.addSubview(setUpTitleView(titleText: "Project"))
+        view.addSubview(profileView())
+    }
 
     
-    func setUpTitleView()-> UIView{
+    func setUpTitleView(titleText: String)-> UIView{
         
         let titleView = UIView(frame: CGRect(x: 90, y: view.safeAreaTop, width: 200, height: 50))
         let title = UILabel(frame:CGRect(x: 0, y: 5, width: 200, height: 50) )
-        title.text = "setTitleText"
+        title.text = titleText
         title.font = UIFont.boldSystemFont(ofSize: 27.0)
         title.textAlignment = .center
         titleView.addSubview(title)

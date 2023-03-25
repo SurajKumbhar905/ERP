@@ -14,11 +14,10 @@ class EmployeeFilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .clear
+//        view.backgroundColor = .clear
         testView.backgroundColor = .white
         
-        testView.layer.cornerRadius = 25
-        
+        testView.layer.cornerRadius = 15
 
     }
     
