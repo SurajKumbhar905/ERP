@@ -1248,7 +1248,6 @@
                                                     <constraint firstAttribute="bottom" secondItem="qBd-8i-LbL" secondAttribute="bottom" id="pc3-3u-QUA"/>
                                                     <constraint firstItem="9c0-KV-FNp" firstAttribute="top" secondItem="DVJ-ep-Pb0" secondAttribute="bottom" constant="15" id="t2I-nl-o4g"/>
                                                     <constraint firstItem="DVJ-ep-Pb0" firstAttribute="top" secondItem="qVM-0e-yGf" secondAttribute="bottom" constant="15" id="v5I-8s-91w"/>
-                                                    <constraint firstAttribute="height" constant="100" id="xWI-sQ-Oui"/>
                                                     <constraint firstItem="qVM-0e-yGf" firstAttribute="top" secondItem="ffN-AJ-tWg" secondAttribute="bottom" constant="15" id="yGN-J3-q8b"/>
                                                     <constraint firstItem="SkG-m7-Xkp" firstAttribute="trailing" secondItem="9c0-KV-FNp" secondAttribute="trailing" id="zOd-9g-h3D"/>
                                                 </constraints>
