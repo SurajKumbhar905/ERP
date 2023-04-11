@@ -38,6 +38,8 @@ class EmployeeViewController: BaseViewController {
     
     @IBOutlet var employeeprojectCollectionView: UICollectionView!
     
+    var childVC = EmployeeEditViewController()
+    
     
     let button = UIButton(type: .custom)
     override func viewDidLoad() {
@@ -105,6 +107,46 @@ class EmployeeViewController: BaseViewController {
     
        
     }
+    
+    
+    @IBAction func employeeEditButtonClick(_ sender: Any) {
+        
+        TabBarViewController.Instance?.tabBAr.isHidden = true
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        childVC = storyboard.instantiateViewController(withIdentifier: "EmployeeEditViewController") as! EmployeeEditViewController
+        
+        childVC.view.frame = CGRect(x: 0, y: view.frame.maxY, width: view.frame.width, height: view.frame.height)
+        
+        addChild(childVC)
+        view.addSubview(childVC.view)
+        childVC.didMove(toParent: self)
+        
+        UIView.animate(withDuration: 0.4) {
+            self.childVC.view.frame.origin.y = self.view.frame.minY
+        } completion: { _ in
+            self.childVC.BlurView.isHidden = false
+//            self.childVC.editView.layer.cornerRadius = 15
+//            self.childVC.editView.layer.borderWidth = 1
+//            self.childVC.editView.clipsToBounds = true
+        }
+        
+    }
+    
+    
+    func dismissChildViewController() {
+        UIView.animate(withDuration: 0.4) {
+               
+                self.childVC.view.frame.origin.y = self.view.frame.maxY
+                
+            } completion: { _ in
+                TabBarViewController.Instance?.tabBAr.isHidden = false
+                self.childVC.removeFromParent()
+                self.childVC.view.removeFromSuperview()
+            }
+        }
+    
+    
     
 }
 

@@ -27,6 +27,7 @@
 		8471C53E29C6079500207DF6 /* textFeildExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8471C53D29C6079500207DF6 /* textFeildExtension.swift */; };
 		8471C54129C618EF00207DF6 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8471C54029C618EF00207DF6 /* Constant.swift */; };
 		8471C54529C6E06200207DF6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8471C54429C6E06200207DF6 /* BaseViewController.swift */; };
+		849B65EC29E5D84800CEDDE1 /* EmployeeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B65EB29E5D84800CEDDE1 /* EmployeeEditViewController.swift */; };
 		84A0754429D043E200E763EF /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0754329D043E200E763EF /* ProjectCollectionViewCell.swift */; };
 		84AFF8FD29CB0935000C38E0 /* EmployeeFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AFF8FC29CB0934000C38E0 /* EmployeeFilterViewController.swift */; };
 		84AFF8FF29CB22BD000C38E0 /* UiViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AFF8FE29CB22BD000C38E0 /* UiViewExtention.swift */; };
@@ -59,6 +60,7 @@
 		8471C53D29C6079500207DF6 /* textFeildExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFeildExtension.swift; sourceTree = "<group>"; };
 		8471C54029C618EF00207DF6 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		8471C54429C6E06200207DF6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		849B65EB29E5D84800CEDDE1 /* EmployeeEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeEditViewController.swift; sourceTree = "<group>"; };
 		84A0754329D043E200E763EF /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		84AFF8FC29CB0934000C38E0 /* EmployeeFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeFilterViewController.swift; sourceTree = "<group>"; };
 		84AFF8FE29CB22BD000C38E0 /* UiViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiViewExtention.swift; sourceTree = "<group>"; };
@@ -150,6 +152,8 @@
 		8471C52C29C5CABF00207DF6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				849B65EA29E5D81C00CEDDE1 /* EditViewController */,
+				849B65E929E5D7EF00CEDDE1 /* FilterViewController */,
 				844F109629C8227300A7FE42 /* BaseController */,
 				844F108C29C70A0600A7FE42 /* CollectionViewCell */,
 				8471C53F29C6189E00207DF6 /* Constant */,
@@ -159,7 +163,6 @@
 				8471C53029C5CCDD00207DF6 /* ProjectViewController.swift */,
 				8471C51A29C5C96300207DF6 /* LoginViewController.swift */,
 				8471C53429C5CF5500207DF6 /* TabBarViewController.swift */,
-				84AFF8FC29CB0934000C38E0 /* EmployeeFilterViewController.swift */,
 				84BA13B429CDCC0100138F40 /* TestViewController.swift */,
 			);
 			path = Controller;
@@ -192,6 +195,22 @@
 				8471C54029C618EF00207DF6 /* Constant.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		849B65E929E5D7EF00CEDDE1 /* FilterViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84AFF8FC29CB0934000C38E0 /* EmployeeFilterViewController.swift */,
+			);
+			path = FilterViewController;
+			sourceTree = "<group>";
+		};
+		849B65EA29E5D81C00CEDDE1 /* EditViewController */ = {
+			isa = PBXGroup;
+			children = (
+				849B65EB29E5D84800CEDDE1 /* EmployeeEditViewController.swift */,
+			);
+			path = EditViewController;
 			sourceTree = "<group>";
 		};
 		84E44C1729E53F880010AAB7 /* CellView */ = {
@@ -274,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849B65EC29E5D84800CEDDE1 /* EmployeeEditViewController.swift in Sources */,
 				84A0754429D043E200E763EF /* ProjectCollectionViewCell.swift in Sources */,
 				845B56CC29C8A59E00680DEB /* EmployeeCollectionViewCell.swift in Sources */,
 				84BA13B529CDCC0100138F40 /* TestViewController.swift in Sources */,
