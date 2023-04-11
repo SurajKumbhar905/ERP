@@ -18,9 +18,25 @@ class DummyData{
     
      let newAddValue : [String] = ["+3" , "+2" , "+$10" ,"+5"]
     
+    let busenessUnit : [String] = ["Art" , "Retail" , "Technology" , " Telecom" ,"TechEd" ]
+    let businessHead : [String] = ["Suraj Kumbhar" , "Sanket Prabu" , "Aniket Bane" , "Amit kavatkar"]
+    let status : [String] = ["Billable" , "Non-Billable"]
+    
     
     func cardCount() ->Int{
         return cardMainTitle.count
+    }
+    
+    func busenessUnitCount () -> Int{
+        return busenessUnit.count
+    }
+    
+    func businessHeadCount() -> Int {
+        return businessHead.count
+    }
+    
+    func statusCount() -> Int{
+        return status.count
     }
 }
 

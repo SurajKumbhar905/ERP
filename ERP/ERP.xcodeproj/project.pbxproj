@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		840669BA29CB374C006F3A1D /* EmployeeProjectCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840669B929CB374C006F3A1D /* EmployeeProjectCardCollectionViewCell.swift */; };
+		8422A0BF29DEC9210008062E /* SowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422A0BE29DEC9210008062E /* SowTableViewCell.swift */; };
 		844F109329C70C4900A7FE42 /* DashBoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F109229C70C4900A7FE42 /* DashBoardCollectionViewCell.swift */; };
 		844F109529C71B7B00A7FE42 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F109429C71B7B00A7FE42 /* DummyData.swift */; };
 		845B56CC29C8A59E00680DEB /* EmployeeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845B56CB29C8A59E00680DEB /* EmployeeCollectionViewCell.swift */; };
@@ -30,10 +31,14 @@
 		84AFF8FD29CB0935000C38E0 /* EmployeeFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AFF8FC29CB0934000C38E0 /* EmployeeFilterViewController.swift */; };
 		84AFF8FF29CB22BD000C38E0 /* UiViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AFF8FE29CB22BD000C38E0 /* UiViewExtention.swift */; };
 		84BA13B529CDCC0100138F40 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA13B429CDCC0100138F40 /* TestViewController.swift */; };
+		84E44C1529E53F7D0010AAB7 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E44C1329E53F7D0010AAB7 /* FilterTableViewCell.swift */; };
+		84E44C1629E53F7D0010AAB7 /* FilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E44C1429E53F7D0010AAB7 /* FilterTableViewCell.xib */; };
+		84E44C1929E596EE0010AAB7 /* ChangeDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E44C1829E596EE0010AAB7 /* ChangeDataStruct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		840669B929CB374C006F3A1D /* EmployeeProjectCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProjectCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		8422A0BE29DEC9210008062E /* SowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SowTableViewCell.swift; sourceTree = "<group>"; };
 		844F109229C70C4900A7FE42 /* DashBoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		844F109429C71B7B00A7FE42 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		845B56CB29C8A59E00680DEB /* EmployeeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -58,6 +63,9 @@
 		84AFF8FC29CB0934000C38E0 /* EmployeeFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeFilterViewController.swift; sourceTree = "<group>"; };
 		84AFF8FE29CB22BD000C38E0 /* UiViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiViewExtention.swift; sourceTree = "<group>"; };
 		84BA13B429CDCC0100138F40 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		84E44C1329E53F7D0010AAB7 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
+		84E44C1429E53F7D0010AAB7 /* FilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTableViewCell.xib; sourceTree = "<group>"; };
+		84E44C1829E596EE0010AAB7 /* ChangeDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeDataStruct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,8 @@
 				845B56CB29C8A59E00680DEB /* EmployeeCollectionViewCell.swift */,
 				840669B929CB374C006F3A1D /* EmployeeProjectCardCollectionViewCell.swift */,
 				84A0754329D043E200E763EF /* ProjectCollectionViewCell.swift */,
+				8422A0BE29DEC9210008062E /* SowTableViewCell.swift */,
+				84E44C1329E53F7D0010AAB7 /* FilterTableViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -122,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				844F109429C71B7B00A7FE42 /* DummyData.swift */,
+				84E44C1829E596EE0010AAB7 /* ChangeDataStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,6 +140,7 @@
 		8471C52B29C5CAB600207DF6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				84E44C1729E53F880010AAB7 /* CellView */,
 				8471C51C29C5C96300207DF6 /* Main.storyboard */,
 				8471C52129C5C96400207DF6 /* LaunchScreen.storyboard */,
 			);
@@ -180,6 +192,14 @@
 				8471C54029C618EF00207DF6 /* Constant.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		84E44C1729E53F880010AAB7 /* CellView */ = {
+			isa = PBXGroup;
+			children = (
+				84E44C1429E53F7D0010AAB7 /* FilterTableViewCell.xib */,
+			);
+			path = CellView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8471C52329C5C96400207DF6 /* LaunchScreen.storyboard in Resources */,
+				84E44C1629E53F7D0010AAB7 /* FilterTableViewCell.xib in Resources */,
 				8471C52029C5C96400207DF6 /* Assets.xcassets in Resources */,
 				8471C51E29C5C96300207DF6 /* Main.storyboard in Resources */,
 			);
@@ -262,6 +283,8 @@
 				8471C53129C5CCDD00207DF6 /* ProjectViewController.swift in Sources */,
 				8471C53C29C5FC1A00207DF6 /* ColorExtention.swift in Sources */,
 				8471C51B29C5C96300207DF6 /* LoginViewController.swift in Sources */,
+				84E44C1929E596EE0010AAB7 /* ChangeDataStruct.swift in Sources */,
+				8422A0BF29DEC9210008062E /* SowTableViewCell.swift in Sources */,
 				8471C54529C6E06200207DF6 /* BaseViewController.swift in Sources */,
 				840669BA29CB374C006F3A1D /* EmployeeProjectCardCollectionViewCell.swift in Sources */,
 				8471C51729C5C96300207DF6 /* AppDelegate.swift in Sources */,
@@ -271,6 +294,7 @@
 				84AFF8FF29CB22BD000C38E0 /* UiViewExtention.swift in Sources */,
 				844F109529C71B7B00A7FE42 /* DummyData.swift in Sources */,
 				8471C54129C618EF00207DF6 /* Constant.swift in Sources */,
+				84E44C1529E53F7D0010AAB7 /* FilterTableViewCell.swift in Sources */,
 				8471C52F29C5CCB200207DF6 /* EmployeeViewController.swift in Sources */,
 				8471C51929C5C96300207DF6 /* SceneDelegate.swift in Sources */,
 			);
@@ -426,6 +450,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,6 +478,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

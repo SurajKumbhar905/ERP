@@ -43,7 +43,7 @@ extension UIColor{
     struct Button {
         static let loginButton = UIColor(hexString: "#3B3B3B")
         static let loginWithEMS = UIColor(hexString: "#FFFFFF")
-        
+        static let filterButton = UIColor(hexString: "3B3B3B")
         
         
     }
@@ -68,6 +68,7 @@ extension UIColor{
     struct cardBackGroundClor {
         static let mainCard = UIColor(hexString: "#D9D9D9")
         static let addnew = UIColor(hexString: "#FAFAFA")
+        static let filterCard = UIColor(hexString: "E4E4E4")
     }
     
     

@@ -178,8 +178,8 @@ extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDa
             UIView.animate(withDuration: 0.4, animations: {
                 self.employeeDetailView.frame = self.view.bounds
              },completion: { _ in
-                                     self.employeeListCollectionView.isUserInteractionEnabled = true
-                                 })
+                  self.employeeListCollectionView.isUserInteractionEnabled = true
+                })
 //
             
             setUpNavigationForEmployee()

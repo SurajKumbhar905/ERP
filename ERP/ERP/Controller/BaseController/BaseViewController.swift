@@ -32,6 +32,11 @@ class BaseViewController: UIViewController {
     
     func setUpnavigationForProject(){
         self.navigationController?.navigationBar.isHidden = true
+        
+        if !ProjectViewController.Instance.projectDetailView.isHidden{
+            view.addSubview(backbuttonProject())
+        }
+        
         view.addSubview(setUpTitleView(titleText: "Project"))
         view.addSubview(profileView())
     }
@@ -91,6 +96,23 @@ class BaseViewController: UIViewController {
         return backButtonView
     }
     
+    func backbuttonProject () -> UIView{
+        
+        
+        let backButtonView = UIView(frame: CGRect(x: 20, y: view.safeAreaTop, width: 50, height: 50))
+        backButtonView.tag = 1
+        let backimageView = UIImageView(frame: CGRect(x: 20, y: 20, width: 20, height: 30))
+        
+        if let imgBackArrow = UIImage(named: "backArrow") {
+            backimageView.image = imgBackArrow
+        }
+        
+        backButtonView.addSubview(backimageView)
+        let backTap = UITapGestureRecognizer(target: self, action: #selector(backToMainProject))
+        backButtonView.addGestureRecognizer(backTap)
+        
+        return backButtonView
+    }
     
     
     func setupNAvigationToMainScreen(backButtonHide : Bool = false , titleText : String = "")
@@ -173,6 +195,19 @@ class BaseViewController: UIViewController {
        EmployeeViewController.Instance.employeeDetailScrollView.isHidden = true
        TabBarViewController.Instance?.selectedIndex = 0
     }
+    
+    
+    @objc func backToMainProject(){
+        print("suraj")
+        for view in self.view.subviews {
+            if (view.tag == 1){
+                view.removeFromSuperview()
+            }
+            
+        }
+        ProjectViewController.Instance.projectDetailView.isHidden = true
+        TabBarViewController.Instance?.selectedIndex = 2
+     }
     
     
 //    func addBadge(itemvalue: String) {
