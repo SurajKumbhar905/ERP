@@ -17,6 +17,7 @@ class EmployeeViewController: BaseViewController {
     
     @IBOutlet var employeeListCollectionView: UICollectionView!
     
+    
    
     
     @IBOutlet var employeeDetailView: UIView!
@@ -59,6 +60,8 @@ class EmployeeViewController: BaseViewController {
         employeeIdLabel.textColor = UIColor.text.textColorLevel2
         employeeRoleLabel.textColor = UIColor.text.textColorLevel2
         
+        
+        
 //        employeeDetailScrollView.translatesAutoresizingMaskIntoConstraints = false
 //        employeeDetailView.backgroundColor = .red
 ////        let topConstraint = NSLayoutConstraint(item: employeeDetailView, attribute: .top, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .top, multiplier: 1.0, constant: 20.0)
@@ -81,7 +84,9 @@ class EmployeeViewController: BaseViewController {
         }
         
         setUpNavigationForEmployee()
-
+        
+     
+        
     }
     
     

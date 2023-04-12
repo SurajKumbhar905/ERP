@@ -80,6 +80,8 @@ class EmployeeFilterViewController: UIViewController {
         self.statusTableHeight.constant = 0
         
         
+       
+        
         setupFilterView()
         
     }

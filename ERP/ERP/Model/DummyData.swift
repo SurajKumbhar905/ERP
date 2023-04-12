@@ -18,7 +18,7 @@ class DummyData{
     
      let newAddValue : [String] = ["+3" , "+2" , "+$10" ,"+5"]
     
-    let busenessUnit : [String] = ["Art" , "Retail" , "Technology" , " Telecom" ,"TechEd" ]
+    let busenessUnit : [String] = ["Art" , "Retail" , "Technology" , "Telecom" ,"TechEd" ]
     let businessHead : [String] = ["Suraj Kumbhar" , "Sanket Prabu" , "Aniket Bane" , "Amit kavatkar"]
     let status : [String] = ["Billable" , "Non-Billable"]
     
