@@ -30,4 +30,6 @@ extension ProjectCollectionViewCell
         
         projectBuName.textColor = UIColor.text.textColorLevel2
     }
+    
+    
 }

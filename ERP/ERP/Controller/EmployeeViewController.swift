@@ -45,6 +45,7 @@ class EmployeeViewController: BaseViewController {
     let button = UIButton(type: .custom)
     override func viewDidLoad() {
         super.viewDidLoad()
+//        employeeInformationCard.dropShadow(color: UIColor.black)
         EmployeeViewController.Instance = self
         title = "Employee"
         
@@ -184,7 +185,7 @@ extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDa
             
             let card = collectionView.dequeueReusableCell(withReuseIdentifier: "EmployeeProjectCard", for: indexPath) as! EmployeeProjectCardCollectionViewCell
             card.addprojectAttribute()
-            
+            card.shadowDecorate()
             return card
             
             
@@ -194,6 +195,7 @@ extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDa
             let card = collectionView.dequeueReusableCell(withReuseIdentifier: "EmployeeCell", for: indexPath) as! EmployeeCollectionViewCell
             
             card.addEmployeeAttribute()
+            card.shadowDecorate()
             return card
         }
         
@@ -209,6 +211,8 @@ extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDa
         }
         else
         {
+           
+            view.bringSubviewToFront(TabBarViewController.Instance!.tabBar)
             view.bringSubviewToFront(employeeDetailScrollView)
             employeeListCollectionView.isUserInteractionEnabled = false
             employeeDetailScrollView.setContentOffset(.zero, animated: false)

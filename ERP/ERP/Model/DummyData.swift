@@ -22,6 +22,7 @@ class DummyData{
     let businessHead : [String] = ["Suraj Kumbhar" , "Sanket Prabu" , "Aniket Bane" , "Amit kavatkar"]
     let status : [String] = ["Billable" , "Non-Billable"]
     
+    let months : [String] = ["January" , "February" , "March" , "April" , "May" , "June" , "Augest" ,"Septembar" ,"Octobar" , "Novembar" ,"Decembar"]
     
     func cardCount() ->Int{
         return cardMainTitle.count
@@ -37,6 +38,10 @@ class DummyData{
     
     func statusCount() -> Int{
         return status.count
+    }
+    
+    func monthCount() -> Int{
+        return months.count
     }
 }
 

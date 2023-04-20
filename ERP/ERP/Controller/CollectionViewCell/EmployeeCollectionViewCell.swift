@@ -30,4 +30,25 @@ extension EmployeeCollectionViewCell{
         
         card.employeeCard.backgroundColor = UIColor.employeeCard.mainCard
     }
+    
+//    func shadowDecorate(radius: CGFloat = 15,
+//                        shadowColor: UIColor = UIColor.black,
+//                           shadowOffset: CGSize = CGSize(width: 0, height: 3.0),
+//                        shadowRadius: CGFloat = 3,
+//                        shadowOpacity: Float = 0.3) {
+//        contentView.layer.cornerRadius = radius
+//        contentView.layer.borderWidth = 0.1
+//        contentView.layer.borderColor = UIColor.black.cgColor
+//        contentView.layer.masksToBounds = true
+//
+//           layer.shadowColor = shadowColor.cgColor
+//           layer.shadowOffset = shadowOffset
+//           layer.shadowRadius = shadowRadius
+//           layer.shadowOpacity = shadowOpacity
+//           layer.masksToBounds = false
+//           layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: radius).cgPath
+//           layer.cornerRadius = radius
+//        layer.shouldRasterize = true
+//        layer.rasterizationScale = UIScreen.main.scale
+//       }
 }

@@ -181,7 +181,7 @@ extension ProjectViewController: UICollectionViewDelegate , UICollectionViewData
         
         let card = collectionView.dequeueReusableCell(withReuseIdentifier: "ProjectCell", for: indexPath) as! ProjectCollectionViewCell
         card.addprojectAttribute()
-        
+        card.shadowDecorate()
         return card
     }
     

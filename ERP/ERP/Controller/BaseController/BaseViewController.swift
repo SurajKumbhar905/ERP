@@ -33,6 +33,7 @@ class BaseViewController: UIViewController {
     }
     
     
+    
     func setUpnavigationForProject(){
         self.navigationController?.navigationBar.isHidden = true
         
@@ -59,6 +60,31 @@ class BaseViewController: UIViewController {
     func profileView() -> UIView{
         
         let profileView = UIView(frame: CGRect(x: view.frame.maxX - 75, y: view.safeAreaTop, width: 60, height: 60))
+        let profileImageView = UIImageView(frame: CGRect(x: -10, y: 0, width: 60, height: 60))
+        
+        if let imageProfile = UIImage(named: "Profile_for_main") {
+            profileImageView.image = imageProfile
+        }
+  
+        let badge = UILabel(frame: CGRect(x: -10, y: 40, width: 20, height: 20))
+        badge.text = "2"
+        badge.font = UIFont.systemFont(ofSize: 14.0)
+        badge.backgroundColor = UIColor.black
+        badge.textColor = UIColor.white
+        badge.layer.cornerRadius = badge.frame.height/2
+        badge.layer.masksToBounds = true
+        badge.textAlignment = .center
+
+        
+        profileView.addSubview(profileImageView)
+        profileView.addSubview(badge)
+        
+        return profileView
+    }
+    
+    func profileViewDashBoard() -> UIView{
+        
+        let profileView = UIView(frame: CGRect(x: view.frame.maxX - 75, y:0, width: 60, height: 60))
         let profileImageView = UIImageView(frame: CGRect(x: -10, y: 0, width: 60, height: 60))
         
         if let imageProfile = UIImage(named: "Profile_for_main") {
