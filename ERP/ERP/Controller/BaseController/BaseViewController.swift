@@ -46,6 +46,16 @@ class BaseViewController: UIViewController {
     }
 
     
+    func addShadow(view: UIView){
+        
+        view.layer.masksToBounds = false
+
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.3
+        view.layer.shadowRadius = 3
+        view.layer.shadowOffset = CGSize(width: 0, height: 3)
+    }
+    
     func setUpTitleView(titleText: String)-> UIView{
         
         let titleView = UIView(frame: CGRect(x: 90, y: view.safeAreaTop, width: 200, height: 50))

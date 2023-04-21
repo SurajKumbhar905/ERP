@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EmployeeEditViewController: UIViewController {
+class EmployeeEditViewController: BaseViewController {
     
     @IBOutlet var BlurView: UIView!
     
@@ -58,6 +58,7 @@ class EmployeeEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         
         BlurView.isHidden = true
         editView.backgroundColor = .white

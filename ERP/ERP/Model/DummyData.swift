@@ -24,6 +24,8 @@ class DummyData{
     
     let months : [String] = ["January" , "February" , "March" , "April" , "May" , "June" , "Augest" ,"Septembar" ,"Octobar" , "Novembar" ,"Decembar"]
     
+    let teamSize : [String] = ["1" , "2" , "3" , "4" ,"5" , "6" , "7" , "8" , "9" , "10"]
+    
     func cardCount() ->Int{
         return cardMainTitle.count
     }
@@ -42,6 +44,10 @@ class DummyData{
     
     func monthCount() -> Int{
         return months.count
+    }
+    
+    func teamSizeCount() -> Int {
+        return teamSize.count
     }
 }
 

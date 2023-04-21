@@ -46,6 +46,8 @@ class EmployeeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        employeeInformationCard.dropShadow(color: UIColor.black)
+        
+        addShadow(view: employeeInformationCard)
         EmployeeViewController.Instance = self
         title = "Employee"
         
@@ -185,7 +187,7 @@ extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDa
             
             let card = collectionView.dequeueReusableCell(withReuseIdentifier: "EmployeeProjectCard", for: indexPath) as! EmployeeProjectCardCollectionViewCell
             card.addprojectAttribute()
-            card.shadowDecorate()
+            card.shadow()
             return card
             
             
@@ -195,7 +197,7 @@ extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDa
             let card = collectionView.dequeueReusableCell(withReuseIdentifier: "EmployeeCell", for: indexPath) as! EmployeeCollectionViewCell
             
             card.addEmployeeAttribute()
-            card.shadowDecorate()
+            card.shadow()
             return card
         }
         

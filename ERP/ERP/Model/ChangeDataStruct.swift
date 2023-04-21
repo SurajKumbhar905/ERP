@@ -14,5 +14,8 @@ struct constentData
     static var businessHeadName : String = "Select Head"
     static var businessUnitName : String = "Select Unit"
     static var status : String = "Select Status"
-    
+   
+    static var ProjectTeamSize : String = "All"
+    static var projectFilterStatus : String = "All"
+   
 }

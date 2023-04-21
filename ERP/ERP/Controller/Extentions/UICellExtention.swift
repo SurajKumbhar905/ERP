@@ -30,4 +30,18 @@ extension UICollectionViewCell {
 //        layer.shouldRasterize = true
 //        layer.rasterizationScale = UIScreen.main.scale
        }
+    
+    func shadow(){
+        contentView.layer.borderWidth = 0.1
+//        contentView.backgroundColor = .clear
+        layer.masksToBounds = false
+
+         layer.shadowColor = UIColor.black.cgColor
+
+        layer.shadowOpacity = 0.3
+
+         layer.shadowRadius = 3
+
+        layer.shadowOffset = CGSize(width: 0, height: 3)
+    }
 }

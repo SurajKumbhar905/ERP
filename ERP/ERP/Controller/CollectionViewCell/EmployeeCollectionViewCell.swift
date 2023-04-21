@@ -27,8 +27,22 @@ extension EmployeeCollectionViewCell{
         card.employeeName.textColor = UIColor.text.textColorLevel1
         card.employeeProjectName.textColor = UIColor.text.textColorLevel3
         card.employeeCard.layer.cornerRadius = 15
+        card.employeeCard.clipsToBounds = true
         
         card.employeeCard.backgroundColor = UIColor.employeeCard.mainCard
+        
+//        card.layer.borderWidth = 0.1
+////        contentView.backgroundColor = .clear
+//        card.layer.masksToBounds = false
+//
+//        card.layer.shadowColor = UIColor.black.cgColor
+//
+//        card.layer.shadowOpacity = 0.3
+//
+//        card.layer.shadowRadius = 3
+//
+//        card.shadowOffset = CGSize(width: 0, height: 3)
+        
     }
     
 //    func shadowDecorate(radius: CGFloat = 15,

@@ -26,7 +26,13 @@ class DashBoardViewController: BaseViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        chartView.dropShadow(color: UIColor.black)
+
+        
+        
+        addShadow(view: chartView)
+        
+
+        
         Barchart.delegate = self
         pieChart.delegate = self
         
@@ -130,7 +136,8 @@ extension DashBoardViewController: UICollectionViewDelegate , UICollectionViewDa
         let card = collectionView.dequeueReusableCell(withReuseIdentifier: "MainScreenCell", for: indexPath) as! DashBoardCollectionViewCell
         
         card.addAttibute(indexPath: indexPath)
-        card.shadowDecorate()
+//        card.shadowDecorate()
+        card.shadow()
         
         return card
     }
@@ -200,7 +207,7 @@ extension DashBoardViewController {
           }
           // 2. Set ChartDataSet
         let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: "Paid")
-        pieChartDataSet.colors = [UIColor.text.textColorLevel2, UIColor.cardBackGroundClor.mainCard]
+        pieChartDataSet.colors = [UIColor(hexString: "#5C5562"), UIColor(hexString: "#7F7884")]
         
           // 3. Set ChartData
         
@@ -217,7 +224,7 @@ extension DashBoardViewController {
         
         pieChart.animate(yAxisDuration: 1.0)
         
-        pieChart.backgroundColor = .green
+        pieChart.backgroundColor = UIColor.white.withAlphaComponent(0.7)
         pieChart.layer.cornerRadius = 10
         pieChart.clipsToBounds = true
         self.chartView.addSubview(pieChart)
@@ -277,10 +284,10 @@ extension DashBoardViewController {
 //        let set =  BarChartDataSet(entries: entries, label: "Cost")
 //        set.colors =  [UIColor.AppColor.DarkPurpleColor]
         let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Unit sold")
-        chartDataSet.colors = [UIColor.text.textColorLevel3]
+        chartDataSet.colors = [UIColor(hexString: "#7F7884")]
 //        chartDataSet.colors = [UIColor.red]
         let chartDataSet1 = BarChartDataSet(entries: dataEntries1, label: "Unit Bought")
-        chartDataSet1.colors = [UIColor.text.textColorLevel2]
+        chartDataSet1.colors = [UIColor(hexString: "#5C5562")]
 //        chartDataSet1.colors = [UIColor.green]
         let datasets : [BarChartDataSet] =  [chartDataSet, chartDataSet1]
         
@@ -304,8 +311,47 @@ extension DashBoardViewController {
         
         Barchart.data = data
         
+        let legend = Barchart.legend
+                    legend.enabled = true
+                    legend.horizontalAlignment = .right
+                    legend.verticalAlignment = .top
+                    legend.orientation = .vertical
+                    legend.drawInside = true
+                    legend.yOffset = 10.0;
+                    legend.xOffset = 10.0;
+                    legend.yEntrySpace = 0.0;
+        
+        
+        
+        
+        let xaxis = Barchart.xAxis
+//                    xaxis.valueFormatter = axisFormatDelegate
+                    xaxis.drawGridLinesEnabled = true
+                    xaxis.labelPosition = .bottom
+//                    xaxis.centerAxisLabelsEnabled = true
+                    xaxis.valueFormatter = IndexAxisValueFormatter(values:months)
+                    xaxis.granularity = 1
+
+
+                    let leftAxisFormatter = NumberFormatter()
+                    leftAxisFormatter.maximumFractionDigits = 1
+
+                    let yaxis = Barchart.leftAxis
+                    yaxis.spaceTop = 0.35
+                    yaxis.axisMinimum = 0
+                    yaxis.drawGridLinesEnabled = false
+
+                    Barchart.rightAxis.enabled = false
+        
+        
         Barchart.xAxis.drawGridLinesEnabled = false
-        Barchart.leftAxis.drawAxisLineEnabled = false
+        Barchart.xAxis.labelPosition = .bottom
+//        Barchart.xAxis.valueFormatter = axisFormatDelegate
+
+//        Barchart.
+        
+        Barchart.rightAxis.drawLabelsEnabled = false
+//        Barchart.leftAxis.drawAxisLineEnabled = false
         Barchart.rightAxis.drawAxisLineEnabled = false
         Barchart.doubleTapToZoomEnabled = false
         Barchart.pinchZoomEnabled = false

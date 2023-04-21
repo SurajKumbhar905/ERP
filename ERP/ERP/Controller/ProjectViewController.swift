@@ -15,6 +15,7 @@ class ProjectViewController: BaseViewController {
 
     @IBOutlet var projectDetailCard: UIView!
     
+    @IBOutlet var projectFilterButton: UIButton!
     
     
     @IBOutlet var projectDetailHeight: NSLayoutConstraint!
@@ -42,12 +43,17 @@ class ProjectViewController: BaseViewController {
     
     @IBOutlet var projectDetailView: UIScrollView!
     
+    var childVC = ProjectFilterViewController()
     
     var click = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        addShadow(view: projectDetailCard)
+        addShadow(view: clientCard)
+        addShadow(view: sowCard)
         ProjectViewController.Instance = self
         
 //        deveLoperStack.isHidden = true
@@ -69,7 +75,33 @@ class ProjectViewController: BaseViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    
+    
+    @IBAction func projectFilterButtonClick(_ sender: Any)
+    {
+        TabBarViewController.Instance?.tabBAr.isHidden = true
+        
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        childVC = storyboard.instantiateViewController(withIdentifier: "ProjectFilterViewController") as! ProjectFilterViewController
+        
+        
+        childVC.view.frame = CGRect(x: 0, y: view.frame.maxY, width: view.frame.width, height: view.frame.height)
+        
+        addChild(childVC)
+        view.addSubview(childVC.view)
+        childVC.didMove(toParent: self)
+        
+        
+        UIView.animate(withDuration: 0.4) {
+            self.childVC.view.frame.origin.y = self.view.frame.minY
+        } completion: { _ in
+            
+        }
+        
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         if !projectDetailView.isHidden {
             projectDetailView.isHidden = false
@@ -153,6 +185,18 @@ class ProjectViewController: BaseViewController {
     }
     
     
+    func dismissChildViewController() {
+        UIView.animate(withDuration: 0.4) {
+               
+                self.childVC.view.frame.origin.y = self.view.frame.maxY
+                
+            } completion: { _ in
+                TabBarViewController.Instance?.tabBAr.isHidden = false
+                self.childVC.removeFromParent()
+                self.childVC.view.removeFromSuperview()
+            }
+        }
+    
     
     func setupProject(){
         projectDetailCard.layer.cornerRadius  = 15
@@ -181,7 +225,7 @@ extension ProjectViewController: UICollectionViewDelegate , UICollectionViewData
         
         let card = collectionView.dequeueReusableCell(withReuseIdentifier: "ProjectCell", for: indexPath) as! ProjectCollectionViewCell
         card.addprojectAttribute()
-        card.shadowDecorate()
+        card.shadow()
         return card
     }
     
