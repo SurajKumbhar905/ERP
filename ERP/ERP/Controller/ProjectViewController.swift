@@ -42,8 +42,11 @@ class ProjectViewController: BaseViewController {
     
     
     @IBOutlet var projectDetailView: UIScrollView!
+    @IBOutlet var projectEditButton: UIButton!
     
-    var childVC = ProjectFilterViewController()
+    
+    var childVC =  UIViewController() //ProjectFilterViewController()
+//    var childVC2 = ProjectEditViewController()
     
     var click = false
     
@@ -185,6 +188,33 @@ class ProjectViewController: BaseViewController {
     }
     
     
+    
+    @IBAction func projectEditButtonClick(_ sender: Any)
+    {
+        TabBarViewController.Instance?.tabBAr.isHidden = true
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        childVC = storyboard.instantiateViewController(withIdentifier: "ProjectEditViewController") as! ProjectEditViewController
+        
+        childVC.view.frame = CGRect(x: 0, y: view.frame.maxY, width: view.frame.width, height: view.frame.height)
+        
+        addChild(childVC)
+        view.addSubview(childVC.view)
+        childVC.didMove(toParent: self)
+        
+        UIView.animate(withDuration: 0.4) {
+            self.childVC.view.frame.origin.y = self.view.frame.minY
+        } completion: { _ in
+//            self.childVC2.BlurView.isHidden = false
+//            self.childVC.editView.layer.cornerRadius = 15
+//            self.childVC.editView.layer.borderWidth = 1
+//            self.childVC.editView.clipsToBounds = true
+        }
+        
+    }
+    
+    
+    
     func dismissChildViewController() {
         UIView.animate(withDuration: 0.4) {
                
@@ -207,6 +237,11 @@ class ProjectViewController: BaseViewController {
         
         sowCard.layer.cornerRadius = 15
         sowCard.backgroundColor = UIColor.cardBackGroundClor.mainCard
+        
+        projectEditButton.layer.cornerRadius = 15
+        projectEditButton.setTitle("Edit", for: .normal)
+        projectEditButton.backgroundColor = UIColor.Button.filterButton
+        projectEditButton.setTitleColor(UIColor.buttonText.buttonText1, for: .normal)
     }
     
 }

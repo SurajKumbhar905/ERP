@@ -19,6 +19,13 @@ extension UITextField{
         textField.layer.cornerRadius = cornerRedius
         textField.layer.masksToBounds = false
         textField.clipsToBounds = true
-      
+        
     }
+    
+    
+    func paddingLeft(inset: CGFloat){
+        self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: inset, height: self.frame.height))
+        self.leftViewMode = UITextField.ViewMode.always
+    }
+    
 }
