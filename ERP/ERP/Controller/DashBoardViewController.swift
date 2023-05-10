@@ -23,6 +23,7 @@ class DashBoardViewController: BaseViewController, ChartViewDelegate {
     
     var Barchart = BarChartView()
     var pieChart = PieChartView()
+    var lineChart = LineChartView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +40,10 @@ class DashBoardViewController: BaseViewController, ChartViewDelegate {
         CreateBarChart(chartView.frame)
         
         CreatePieChart(chartView.frame)
+        CreateLineChart()
     
         Barchart.isHidden = true
+        lineChart.isHidden = true
         
         chartFilterView.layer.cornerRadius = 4
         chartFilterView.clipsToBounds = true
@@ -83,6 +86,7 @@ class DashBoardViewController: BaseViewController, ChartViewDelegate {
         case 0:
             Barchart.isHidden = true
             pieChart.isHidden = false
+            lineChart.isHidden = true
             pieChart.animate(yAxisDuration: 0.5)
             pieChart.animate(xAxisDuration: 0.5)
             chartFilterView.isHidden = false
@@ -91,11 +95,19 @@ class DashBoardViewController: BaseViewController, ChartViewDelegate {
             
             Barchart.isHidden = false
             pieChart.isHidden = true
+            lineChart.isHidden = true
             Barchart.animate(xAxisDuration: 0.5)
             Barchart.animate(yAxisDuration: 0.5)
             chartFilterView.isHidden = true
             chartFaltertableHeight.constant = 0
         case 2:
+            Barchart.isHidden = true
+            pieChart.isHidden = true
+            lineChart.isHidden = false
+            lineChart.animate(xAxisDuration: 0.5)
+            lineChart.animate(yAxisDuration: 0.5)
+            chartFilterView.isHidden = true
+            chartFaltertableHeight.constant = 0
            print("gsd")
         default :
             print("bj")
@@ -328,7 +340,7 @@ extension DashBoardViewController {
 //                    xaxis.valueFormatter = axisFormatDelegate
                     xaxis.drawGridLinesEnabled = true
                     xaxis.labelPosition = .bottom
-//                    xaxis.centerAxisLabelsEnabled = true
+                    xaxis.centerAxisLabelsEnabled = true
                     xaxis.valueFormatter = IndexAxisValueFormatter(values:months)
                     xaxis.granularity = 1
 
@@ -353,8 +365,8 @@ extension DashBoardViewController {
         Barchart.rightAxis.drawLabelsEnabled = false
 //        Barchart.leftAxis.drawAxisLineEnabled = false
         Barchart.rightAxis.drawAxisLineEnabled = false
-        Barchart.doubleTapToZoomEnabled = false
-        Barchart.pinchZoomEnabled = false
+        Barchart.doubleTapToZoomEnabled = true
+        Barchart.pinchZoomEnabled = true
         Barchart.scaleXEnabled = false
         Barchart.scaleYEnabled = false
         
@@ -372,6 +384,151 @@ extension DashBoardViewController {
             Barchart.trailingAnchor.constraint(equalTo: chartView.trailingAnchor)
         ])
         
+    }
+    
+    
+    func CreateLineChart(){
+        
+//        var unitsSold2 = [2.5 , 4.5 ,4.0 , 10.0, 18.4 ,14.0 , 8.0 , 6.0,20.0, 4.0, 6.0, 3.0, 12.0 , 35.0 , 12.0 ,34.0 , 12.0, 8.4 ,50.0 , 21.0]
+//        var unitsBought2 = [ 2.0 ,3.0, 12.0 , 18.0 , 12.0 ,7.0 , 12.0, 4.4,10.0, 14.0, 60.0, 13.0, 2.0 ,3.0, 12.0 , 15.0 , 12.0 ,34.0 , 12.0, 4.4]
+//
+//        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July" , "Aug" , "Sep" , "Oct" , "Nov" , "Dec"]
+//        lineChart.frame = CGRect(x: frame.origin.x - 16, y: frame.origin.y - 490,
+//        width: frame.width, height: frame.height - 50)
+        
+        
+        let months = ["Jan", "Feb", "Mar", "Apr", "May"]
+        let unitsSold2 = [20.0, 4.0, 15.0, 10.0, 6.0]
+        let unitsBought2 = [10.0, 14.0, 60.0, 13.0, 2.0]
+        
+        var dataEntries: [ChartDataEntry] = []
+        var dataEntries1: [ChartDataEntry] = []
+       
+//        let dataEntry = BarChartDataEntry(x: Double(i) , y: unitsSold2[i])
+//                 dataEntries.append(dataEntry)
+//        let dataEntry1 = BarChartDataEntry(x: Double(i) , y: unitsBought2[i])
+//                dataEntries1.append(dataEntry1)
+//                }
+            
+            
+            for i in 0..<months.count {
+                
+                
+
+                    let dataEntry = BarChartDataEntry(x: Double(i) , y: unitsSold2[i])
+                        dataEntries.append(dataEntry)
+
+                        let dataEntry1 = BarChartDataEntry(x: Double(i) , y: unitsBought2[i])
+                        dataEntries1.append(dataEntry1)
+
+                        //stack barchart
+                        //let dataEntry = BarChartDataEntry(x: Double(i), yValues:  [self.unitsSold[i],self.unitsBought[i]], label: "groupChart")
+            }
+            
+        let  chartDataSet = LineChartDataSet(entries: dataEntries, label: "Income")
+            chartDataSet.colors = [UIColor(hexString: "#7F7884")]
+        let chartDataSet1 = LineChartDataSet(entries: dataEntries1, label: "OutCome")
+            chartDataSet1.colors = [UIColor(hexString: "#5C5562")]
+                chartDataSet.drawCirclesEnabled = false
+                chartDataSet1.drawCirclesEnabled = false
+                chartDataSet1.drawValuesEnabled = false
+                chartDataSet.drawValuesEnabled = false
+                chartDataSet.mode = .cubicBezier
+                chartDataSet1.mode = .cubicBezier
+                chartDataSet.lineWidth = 2
+                chartDataSet1.lineWidth = 2
+        let datasets : [LineChartDataSet] =  [chartDataSet, chartDataSet1]
+        let data = LineChartData(dataSets: datasets)
+        let groupSpace = 0.3
+        let barSpace = 0.05
+        let barWidth = 0.3
+        let groupCount = months.count
+        let startYear = 0
+//                lineChart.borderLineWidth = 3.0
+//
+//                lineChart.xAxis.axisMinimum = Double(startYear)
+                lineChart.notifyDataSetChanged()
+                lineChart.data = data
+//                lineChart.xAxis.drawGridLinesEnabled = false
+//                lineChart.leftAxis.drawAxisLineEnabled = false
+//                lineChart.rightAxis.drawAxisLineEnabled = false
+//                lineChart.doubleTapToZoomEnabled = false
+//                lineChart.pinchZoomEnabled = false
+//                lineChart.scaleXEnabled = false
+//                lineChart.scaleYEnabled = false
+////        self.salesOverviewView.addSubview(lineChart)
+//        lineChart.rightAxis.drawLabelsEnabled = false
+//        lineChart.xAxis.labelPosition = .bottom
+//
+        
+        
+        
+        
+//        let legend = lineChart.legend
+//                    legend.enabled = true
+//                    legend.horizontalAlignment = .right
+//                    legend.verticalAlignment = .top
+//                    legend.orientation = .vertical
+//                    legend.drawInside = true
+//                    legend.yOffset = 10.0;
+//                    legend.xOffset = 10.0;
+//                    legend.yEntrySpace = 0.0;
+        
+        
+        
+        
+        let xaxis = lineChart.xAxis
+//                    xaxis.valueFormatter = axisFormatDelegate
+                    xaxis.drawGridLinesEnabled = true
+                    xaxis.labelPosition = .bottom
+                    xaxis.centerAxisLabelsEnabled = true
+                    xaxis.valueFormatter = IndexAxisValueFormatter(values:months)
+                    xaxis.granularity = 1
+
+
+                    let leftAxisFormatter = NumberFormatter()
+                    leftAxisFormatter.maximumFractionDigits = 1
+
+                    let yaxis = lineChart.leftAxis
+                    yaxis.spaceTop = 0
+                    yaxis.axisMinimum = 0
+                    yaxis.drawGridLinesEnabled = false
+
+                    lineChart.rightAxis.enabled = false
+        
+        
+        lineChart.xAxis.drawGridLinesEnabled = false
+        lineChart.xAxis.labelPosition = .bottom
+//        Barchart.xAxis.valueFormatter = axisFormatDelegate
+
+//        Barchart.
+        
+        lineChart.rightAxis.drawLabelsEnabled = false
+//        Barchart.leftAxis.drawAxisLineEnabled = false
+        lineChart.rightAxis.drawAxisLineEnabled = false
+        lineChart.doubleTapToZoomEnabled = true
+        lineChart.pinchZoomEnabled = true
+        lineChart.scaleXEnabled = false
+        lineChart.scaleYEnabled = false
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        self.chartView.addSubview(lineChart)
+        
+        lineChart.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            lineChart.topAnchor.constraint(equalTo: chartView.topAnchor),
+            lineChart.bottomAnchor.constraint(equalTo: chartView.bottomAnchor),
+            lineChart.leadingAnchor.constraint(equalTo: chartView.leadingAnchor),
+            lineChart.trailingAnchor.constraint(equalTo: chartView.trailingAnchor)
+        ])
+
     }
 }
 

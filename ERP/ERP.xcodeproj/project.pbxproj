@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		840669BA29CB374C006F3A1D /* EmployeeProjectCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840669B929CB374C006F3A1D /* EmployeeProjectCardCollectionViewCell.swift */; };
+		8418DB9729F4EB4A003561B4 /* MileStoneNibCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418DB9529F4EB4A003561B4 /* MileStoneNibCollectionViewCell.swift */; };
+		8418DB9829F4EB4A003561B4 /* MileStoneNibCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8418DB9629F4EB4A003561B4 /* MileStoneNibCollectionViewCell.xib */; };
+		8418DB9B29F4EB76003561B4 /* ResourceNibCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418DB9929F4EB76003561B4 /* ResourceNibCollectionViewCell.swift */; };
+		8418DB9C29F4EB76003561B4 /* ResourceNibCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8418DB9A29F4EB76003561B4 /* ResourceNibCollectionViewCell.xib */; };
+		8418DB9E29F520CE003561B4 /* resorceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418DB9D29F520CE003561B4 /* resorceCollectionViewCell.swift */; };
+		8418DBA029F525FE003561B4 /* MilestoneCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418DB9F29F525FE003561B4 /* MilestoneCollectionViewCell.swift */; };
 		8422A0BF29DEC9210008062E /* SowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422A0BE29DEC9210008062E /* SowTableViewCell.swift */; };
 		844F109329C70C4900A7FE42 /* DashBoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F109229C70C4900A7FE42 /* DashBoardCollectionViewCell.swift */; };
 		844F109529C71B7B00A7FE42 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F109429C71B7B00A7FE42 /* DummyData.swift */; };
@@ -27,6 +33,8 @@
 		8471C53E29C6079500207DF6 /* textFeildExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8471C53D29C6079500207DF6 /* textFeildExtension.swift */; };
 		8471C54129C618EF00207DF6 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8471C54029C618EF00207DF6 /* Constant.swift */; };
 		8471C54529C6E06200207DF6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8471C54429C6E06200207DF6 /* BaseViewController.swift */; };
+		8485270C2A0A51FE0013A4CC /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485270B2A0A51FE0013A4CC /* ProfilePageViewController.swift */; };
+		8485270F2A0A6E3E0013A4CC /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 8485270E2A0A6E3E0013A4CC /* SkeletonView */; };
 		849B65EC29E5D84800CEDDE1 /* EmployeeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B65EB29E5D84800CEDDE1 /* EmployeeEditViewController.swift */; };
 		84A0754429D043E200E763EF /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0754329D043E200E763EF /* ProjectCollectionViewCell.swift */; };
 		84AFF8FD29CB0935000C38E0 /* EmployeeFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AFF8FC29CB0934000C38E0 /* EmployeeFilterViewController.swift */; };
@@ -42,6 +50,12 @@
 
 /* Begin PBXFileReference section */
 		840669B929CB374C006F3A1D /* EmployeeProjectCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProjectCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		8418DB9529F4EB4A003561B4 /* MileStoneNibCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneNibCollectionViewCell.swift; sourceTree = "<group>"; };
+		8418DB9629F4EB4A003561B4 /* MileStoneNibCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MileStoneNibCollectionViewCell.xib; sourceTree = "<group>"; };
+		8418DB9929F4EB76003561B4 /* ResourceNibCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceNibCollectionViewCell.swift; sourceTree = "<group>"; };
+		8418DB9A29F4EB76003561B4 /* ResourceNibCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResourceNibCollectionViewCell.xib; sourceTree = "<group>"; };
+		8418DB9D29F520CE003561B4 /* resorceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resorceCollectionViewCell.swift; sourceTree = "<group>"; };
+		8418DB9F29F525FE003561B4 /* MilestoneCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneCollectionViewCell.swift; sourceTree = "<group>"; };
 		8422A0BE29DEC9210008062E /* SowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SowTableViewCell.swift; sourceTree = "<group>"; };
 		844F109229C70C4900A7FE42 /* DashBoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		844F109429C71B7B00A7FE42 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
@@ -63,6 +77,7 @@
 		8471C53D29C6079500207DF6 /* textFeildExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFeildExtension.swift; sourceTree = "<group>"; };
 		8471C54029C618EF00207DF6 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		8471C54429C6E06200207DF6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		8485270B2A0A51FE0013A4CC /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		849B65EB29E5D84800CEDDE1 /* EmployeeEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeEditViewController.swift; sourceTree = "<group>"; };
 		84A0754329D043E200E763EF /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		84AFF8FC29CB0934000C38E0 /* EmployeeFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeFilterViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8485270F2A0A6E3E0013A4CC /* SkeletonView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,9 +109,13 @@
 				844F109229C70C4900A7FE42 /* DashBoardCollectionViewCell.swift */,
 				845B56CB29C8A59E00680DEB /* EmployeeCollectionViewCell.swift */,
 				840669B929CB374C006F3A1D /* EmployeeProjectCardCollectionViewCell.swift */,
-				84A0754329D043E200E763EF /* ProjectCollectionViewCell.swift */,
-				8422A0BE29DEC9210008062E /* SowTableViewCell.swift */,
 				84E44C1329E53F7D0010AAB7 /* FilterTableViewCell.swift */,
+				84A0754329D043E200E763EF /* ProjectCollectionViewCell.swift */,
+				8418DB9929F4EB76003561B4 /* ResourceNibCollectionViewCell.swift */,
+				8418DB9529F4EB4A003561B4 /* MileStoneNibCollectionViewCell.swift */,
+				8422A0BE29DEC9210008062E /* SowTableViewCell.swift */,
+				8418DB9D29F520CE003561B4 /* resorceCollectionViewCell.swift */,
+				8418DB9F29F525FE003561B4 /* MilestoneCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -170,6 +190,7 @@
 				8471C51A29C5C96300207DF6 /* LoginViewController.swift */,
 				8471C53429C5CF5500207DF6 /* TabBarViewController.swift */,
 				84BA13B429CDCC0100138F40 /* TestViewController.swift */,
+				8485270B2A0A51FE0013A4CC /* ProfilePageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -226,6 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				84E44C1429E53F7D0010AAB7 /* FilterTableViewCell.xib */,
+				8418DB9629F4EB4A003561B4 /* MileStoneNibCollectionViewCell.xib */,
+				8418DB9A29F4EB76003561B4 /* ResourceNibCollectionViewCell.xib */,
 			);
 			path = CellView;
 			sourceTree = "<group>";
@@ -246,6 +269,9 @@
 			dependencies = (
 			);
 			name = ERP;
+			packageProductDependencies = (
+				8485270E2A0A6E3E0013A4CC /* SkeletonView */,
+			);
 			productName = ERP;
 			productReference = 8471C51329C5C96300207DF6 /* ERP.app */;
 			productType = "com.apple.product-type.application";
@@ -274,6 +300,9 @@
 				Base,
 			);
 			mainGroup = 8471C50A29C5C96200207DF6;
+			packageReferences = (
+				8485270D2A0A6E3E0013A4CC /* XCRemoteSwiftPackageReference "SkeletonView" */,
+			);
 			productRefGroup = 8471C51429C5C96300207DF6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -288,10 +317,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8418DB9C29F4EB76003561B4 /* ResourceNibCollectionViewCell.xib in Resources */,
 				8471C52329C5C96400207DF6 /* LaunchScreen.storyboard in Resources */,
 				84E44C1629E53F7D0010AAB7 /* FilterTableViewCell.xib in Resources */,
 				8471C52029C5C96400207DF6 /* Assets.xcassets in Resources */,
 				8471C51E29C5C96300207DF6 /* Main.storyboard in Resources */,
+				8418DB9829F4EB4A003561B4 /* MileStoneNibCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,12 +333,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8418DB9E29F520CE003561B4 /* resorceCollectionViewCell.swift in Sources */,
 				849B65EC29E5D84800CEDDE1 /* EmployeeEditViewController.swift in Sources */,
 				84A0754429D043E200E763EF /* ProjectCollectionViewCell.swift in Sources */,
 				84E2071D29F0DEEC000E0268 /* ProjectFilterViewController.swift in Sources */,
 				845B56CC29C8A59E00680DEB /* EmployeeCollectionViewCell.swift in Sources */,
 				84BA13B529CDCC0100138F40 /* TestViewController.swift in Sources */,
 				844F109329C70C4900A7FE42 /* DashBoardCollectionViewCell.swift in Sources */,
+				8485270C2A0A51FE0013A4CC /* ProfilePageViewController.swift in Sources */,
 				8471C53E29C6079500207DF6 /* textFeildExtension.swift in Sources */,
 				8471C53A29C5FA2800207DF6 /* ButtonExtension.swift in Sources */,
 				8471C53129C5CCDD00207DF6 /* ProjectViewController.swift in Sources */,
@@ -317,12 +350,15 @@
 				8422A0BF29DEC9210008062E /* SowTableViewCell.swift in Sources */,
 				8471C54529C6E06200207DF6 /* BaseViewController.swift in Sources */,
 				840669BA29CB374C006F3A1D /* EmployeeProjectCardCollectionViewCell.swift in Sources */,
+				8418DB9729F4EB4A003561B4 /* MileStoneNibCollectionViewCell.swift in Sources */,
+				8418DB9B29F4EB76003561B4 /* ResourceNibCollectionViewCell.swift in Sources */,
 				8471C51729C5C96300207DF6 /* AppDelegate.swift in Sources */,
 				84B403F329F23D9A0008CB9F /* ProjectEditViewController.swift in Sources */,
 				8471C53329C5CF0300207DF6 /* DashBoardViewController.swift in Sources */,
 				84AFF8FD29CB0935000C38E0 /* EmployeeFilterViewController.swift in Sources */,
 				84E55A8E29F037FA00FF80E0 /* UICellExtention.swift in Sources */,
 				8471C53529C5CF5500207DF6 /* TabBarViewController.swift in Sources */,
+				8418DBA029F525FE003561B4 /* MilestoneCollectionViewCell.swift in Sources */,
 				84AFF8FF29CB22BD000C38E0 /* UiViewExtention.swift in Sources */,
 				844F109529C71B7B00A7FE42 /* DummyData.swift in Sources */,
 				8471C54129C618EF00207DF6 /* Constant.swift in Sources */,
@@ -546,6 +582,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8485270D2A0A6E3E0013A4CC /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8485270E2A0A6E3E0013A4CC /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8485270D2A0A6E3E0013A4CC /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8471C50B29C5C96200207DF6 /* Project object */;
 }

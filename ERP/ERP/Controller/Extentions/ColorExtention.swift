@@ -76,5 +76,9 @@ extension UIColor{
         static let mainCard = UIColor(hexString: "#D9D9D9")
         
     }
+    
+    struct ProjectEditCard {
+        static let mileStoneCard = UIColor(hexString: "#D3D3D3")
+    }
 }
 

@@ -33,6 +33,10 @@ class EmployeeViewController: BaseViewController {
     @IBOutlet var employeeSkillSet: UILabel!
     
     
+    @IBOutlet var noDataLabel: UILabel!
+    
+    @IBOutlet var searchBar: UISearchBar!
+    
     @IBOutlet var employeeEditButton: UIButton!
     
     
@@ -40,12 +44,14 @@ class EmployeeViewController: BaseViewController {
     @IBOutlet var employeeprojectCollectionView: UICollectionView!
     
     var childVC = EmployeeEditViewController()
-    
+    var filteredData = [String]()
     
     let button = UIButton(type: .custom)
     override func viewDidLoad() {
         super.viewDidLoad()
 //        employeeInformationCard.dropShadow(color: UIColor.black)
+        
+        filteredData = DummyData.Instance.employeeData
         
         addShadow(view: employeeInformationCard)
         EmployeeViewController.Instance = self
@@ -63,7 +69,8 @@ class EmployeeViewController: BaseViewController {
         employeeIdLabel.textColor = UIColor.text.textColorLevel2
         employeeRoleLabel.textColor = UIColor.text.textColorLevel2
         
-        
+        searchBar.delegate = self
+        noDataLabel.isHidden = true
         
 //        employeeDetailScrollView.translatesAutoresizingMaskIntoConstraints = false
 //        employeeDetailView.backgroundColor = .red
@@ -73,8 +80,33 @@ class EmployeeViewController: BaseViewController {
 ////        let trailingConstraint = NSLayoutConstraint(item: employeeDetailView, attribute: .trailing, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .trailing, multiplier: 1.0, constant: -20.0)
 //        NSLayoutConstraint.activate([ bottomConstraint])
         
+        hideKeyboardWhenTappedAround()
+        
     }
     
+    
+    func hideKeyboardWhenTappedAround()
+
+    {
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        tapGestureRecognizer.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tapGestureRecognizer)
+        
+    }
+
+    
+
+ @objc func dismissKeyboard()
+
+    {
+
+        view.endEditing(true)
+
+    }
+
     
     
     override func viewWillAppear(_ animated: Bool)
@@ -172,7 +204,7 @@ extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDa
                return 2
             
            } else {
-               return 100
+               return filteredData.count//100
            }
     }
     
@@ -195,7 +227,7 @@ extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDa
         else
         {
             let card = collectionView.dequeueReusableCell(withReuseIdentifier: "EmployeeCell", for: indexPath) as! EmployeeCollectionViewCell
-            
+            card.employeeName.text = filteredData[indexPath.row]
             card.addEmployeeAttribute()
             card.shadow()
             return card
@@ -264,6 +296,35 @@ extension EmployeeViewController : UICollectionViewDelegate , UICollectionViewDa
     
     
     
+    
+}
+
+
+extension EmployeeViewController : UISearchBarDelegate{
+    
+   
+        
+        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            
+            
+            if searchText.isEmpty{
+                filteredData = DummyData.Instance.employeeData
+                noDataLabel.isHidden = true
+            }else{
+                filteredData = DummyData.Instance.employeeData.filter { $0.lowercased().contains(searchText.lowercased()) }
+                
+                if filteredData.isEmpty {
+                    noDataLabel.text = "No Data Found"
+                    noDataLabel.isHidden = false
+    
+                }else{
+                    noDataLabel.isHidden = true
+                }
+               
+            }
+            employeeListCollectionView.reloadData()
+                
+            }
 }
 
 

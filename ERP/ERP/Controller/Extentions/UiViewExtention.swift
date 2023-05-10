@@ -70,11 +70,33 @@ extension UIApplication {
 
 extension UIViewController {
 
-@objc func dismissKeyboard() {
-
-    view.endEditing(true)
-
-    }
+//@objc func dismissKeyboard() {
+//
+//    view.endEditing(true)
+//
+//    }
 
 }
 
+extension UIView {
+    func addDashedBorder(color: CGColor) {
+//    let color = UIColor.red.cgColor
+
+    let shapeLayer:CAShapeLayer = CAShapeLayer()
+    let frameSize = self.frame.size
+        let lineWidth: CGFloat = 2.0
+        let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width - lineWidth, height: frameSize.height - lineWidth)
+//    let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
+
+    shapeLayer.bounds = shapeRect
+    shapeLayer.position = CGPoint(x: frameSize.width/2, y: frameSize.height/2)
+    shapeLayer.fillColor = UIColor.clear.cgColor
+    shapeLayer.strokeColor = color
+    shapeLayer.lineWidth = 2
+    shapeLayer.lineJoin = CAShapeLayerLineJoin.round
+    shapeLayer.lineDashPattern = [6,3]
+    shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5).cgPath
+
+    self.layer.addSublayer(shapeLayer)
+    }
+}

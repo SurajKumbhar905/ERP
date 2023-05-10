@@ -22,6 +22,9 @@
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="useFontLineHeight" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </label>
                 </subviews>
                 <constraints>
@@ -29,8 +32,14 @@
                     <constraint firstItem="L1u-Cy-fVb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hZZ-ZD-pP6"/>
                     <constraint firstAttribute="trailing" secondItem="L1u-Cy-fVb" secondAttribute="trailing" constant="10" id="iM6-vc-GsM"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="cellLabel" destination="L1u-Cy-fVb" id="UoB-hK-FN9"/>
             </connections>

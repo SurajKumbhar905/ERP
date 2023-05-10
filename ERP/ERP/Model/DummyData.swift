@@ -18,13 +18,17 @@ class DummyData{
     
      let newAddValue : [String] = ["+3" , "+2" , "+$10" ,"+5"]
     
+    let projectName : [String] = ["Self-Scan" , "AMS" , "EMS" , "Reatail" , "Hatch" , "Image Prosessing" , "Headless" , "AR-VR" , "Gluv"]
     let busenessUnit : [String] = ["Art" , "Retail" , "Technology" , "Telecom" ,"TechEd" ]
     let businessHead : [String] = ["Suraj Kumbhar" , "Sanket Prabu" , "Aniket Bane" , "Amit kavatkar"]
+    let employeeData : [String] = ["Suraj Kumbhar" , "Sanket Prabu" , "Aniket Bane" , "Amit kavatkar" , "Sanket Dhuri" , "Prathamesh Bhuravane" , "Vaishnavi Achrekar" ,"Purva Pawar"]
     let status : [String] = ["Billable" , "Non-Billable"]
     
     let months : [String] = ["January" , "February" , "March" , "April" , "May" , "June" , "Augest" ,"Septembar" ,"Octobar" , "Novembar" ,"Decembar"]
     
     let teamSize : [String] = ["1" , "2" , "3" , "4" ,"5" , "6" , "7" , "8" , "9" , "10"]
+    
+    let currency : [String] = ["EUR €" , "USD $" ,"INR ₹"]
     
     func cardCount() ->Int{
         return cardMainTitle.count
@@ -48,6 +52,10 @@ class DummyData{
     
     func teamSizeCount() -> Int {
         return teamSize.count
+    }
+    
+    func currencyCount() -> Int {
+        return currency.count
     }
 }
 

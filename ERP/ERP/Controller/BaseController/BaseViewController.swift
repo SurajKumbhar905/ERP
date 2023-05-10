@@ -89,8 +89,24 @@ class BaseViewController: UIViewController {
         profileView.addSubview(profileImageView)
         profileView.addSubview(badge)
         
+        
+        let blurTap = UITapGestureRecognizer(target: self, action: #selector(self.ProfileViewViewTapHandle(_:)))
+        profileView.addGestureRecognizer(blurTap)
+        
         return profileView
     }
+    
+    @objc func ProfileViewViewTapHandle(_ sender: UITapGestureRecognizer? = nil)
+    {
+        
+       print("tap on profile")
+        
+        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfilePageViewController") as! ProfilePageViewController
+        navigationController?.navigationBar.isHidden = false
+        TabBarViewController.Instance?.tabBAr.isHidden = true
+        self.navigationController?.pushViewController(secondViewController, animated: true)
+    }
+    
     
     func profileViewDashBoard() -> UIView{
         
@@ -113,6 +129,9 @@ class BaseViewController: UIViewController {
         
         profileView.addSubview(profileImageView)
         profileView.addSubview(badge)
+        
+        let blurTap = UITapGestureRecognizer(target: self, action: #selector(self.ProfileViewViewTapHandle(_:)))
+        profileView.addGestureRecognizer(blurTap)
         
         return profileView
     }

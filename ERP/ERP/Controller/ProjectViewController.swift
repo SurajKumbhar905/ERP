@@ -12,7 +12,7 @@ class ProjectViewController: BaseViewController {
     
     static var Instance = ProjectViewController()
     
-
+    
     @IBOutlet var projectDetailCard: UIView!
     
     @IBOutlet var projectFilterButton: UIButton!
@@ -44,28 +44,34 @@ class ProjectViewController: BaseViewController {
     @IBOutlet var projectDetailView: UIScrollView!
     @IBOutlet var projectEditButton: UIButton!
     
+    @IBOutlet var noDataLabel: UILabel!
+    @IBOutlet var searchBar: UISearchBar!
     
     var childVC =  UIViewController() //ProjectFilterViewController()
-//    var childVC2 = ProjectEditViewController()
+    //    var childVC2 = ProjectEditViewController()
     
+    var filteredData = [String]()
     var click = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         addShadow(view: projectDetailCard)
         addShadow(view: clientCard)
         addShadow(view: sowCard)
         ProjectViewController.Instance = self
+        searchBar.delegate = self
+        filteredData = DummyData.Instance.projectName
+        noDataLabel.isHidden = true
         
-//        deveLoperStack.isHidden = true
+        //        deveLoperStack.isHidden = true
         seniourDevloperStack.isHidden = true
         QaLeadStack.isHidden = true
         sQAStack.isHidden = true
         qaManualStack.isHidden = true
         
-//        self.projectDetailCard.frame = CGRect(x: 0, y: 0, width: self.projectDetailCard.frame.width, height: self.projectDetailCard.frame.height - 170.0)
+        //        self.projectDetailCard.frame = CGRect(x: 0, y: 0, width: self.projectDetailCard.frame.width, height: self.projectDetailCard.frame.height - 170.0)
         projectDetailHeight.constant = 300
         
         title = "Project"
@@ -76,8 +82,29 @@ class ProjectViewController: BaseViewController {
         view.bringSubviewToFront(projectDetailView)
         
         // Do any additional setup after loading the view.
+        hideKeyboardWhenTappedAround()
     }
     
+    
+    func hideKeyboardWhenTappedAround()
+
+    {
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        tapGestureRecognizer.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tapGestureRecognizer)
+        
+    }
+    
+    @objc func dismissKeyboard()
+
+       {
+
+           view.endEditing(true)
+
+       }
     
     
     @IBAction func projectFilterButtonClick(_ sender: Any)
@@ -112,24 +139,24 @@ class ProjectViewController: BaseViewController {
             projectDetailView.isHidden = true
         }
         setUpnavigationForProject()
-
+        
     }
-
+    
     
     @IBAction func moreLessButtonAction(_ sender: UIButton) {
         
         
-//        self.projectDetailCard.frame = CGRect(x: 0, y: 0, width: self.projectDetailCard.frame.width, height: self.projectDetailCard.frame.height - 170.0)
-       
-//        self.projectDetailHeight.isActive.toggle()
+        //        self.projectDetailCard.frame = CGRect(x: 0, y: 0, width: self.projectDetailCard.frame.width, height: self.projectDetailCard.frame.height - 170.0)
+        
+        //        self.projectDetailHeight.isActive.toggle()
         
         if click{
             click = false
             
             
-            UIView.animate(withDuration: 0.6, animations: {
+            UIView.animate(withDuration: 0.4, animations: {
                 self.MoreLessButton.setTitle("More", for: .normal)
-//                self.deveLoperStack.isHidden = true
+                //                self.deveLoperStack.isHidden = true
                 self.seniourDevloperStack.isHidden = true
                 
                 self.QaLeadStack.isHidden = true
@@ -147,12 +174,12 @@ class ProjectViewController: BaseViewController {
                 
             },completion:  {
                 (value: Bool) in
-//                self.deveLoperStack.isHidden = false
-//                self.seniourDevloperStack.isHidden = false
+                //                self.deveLoperStack.isHidden = false
+                //                self.seniourDevloperStack.isHidden = false
                 
-             })
-
-//            projectDetailHeight.isActive.toggle()
+            })
+            
+            //            projectDetailHeight.isActive.toggle()
             
         }else
         {
@@ -162,8 +189,8 @@ class ProjectViewController: BaseViewController {
             self.QaLeadStack.alpha = 0
             self.sQAStack.alpha = 0
             self.qaManualStack.alpha = 0
-            UIView.animate(withDuration: 0.6, animations: {
-               
+            UIView.animate(withDuration: 0.4, animations: {
+                
                 self.projectDetailHeight.constant = 470
                 self.QaLeadStack.alpha = 1
                 self.sQAStack.alpha = 1
@@ -176,11 +203,11 @@ class ProjectViewController: BaseViewController {
                 self.QaLeadStack.isHidden = false
                 self.sQAStack.isHidden = false
                 self.qaManualStack.isHidden = false
-//                self.deveLoperStack.isHidden = false
+                //                self.deveLoperStack.isHidden = false
                 self.seniourDevloperStack.isHidden = false
-               
-               
-             })
+                
+                
+            })
             
         }
         
@@ -205,10 +232,10 @@ class ProjectViewController: BaseViewController {
         UIView.animate(withDuration: 0.4) {
             self.childVC.view.frame.origin.y = self.view.frame.minY
         } completion: { _ in
-//            self.childVC2.BlurView.isHidden = false
-//            self.childVC.editView.layer.cornerRadius = 15
-//            self.childVC.editView.layer.borderWidth = 1
-//            self.childVC.editView.clipsToBounds = true
+            //            self.childVC2.BlurView.isHidden = false
+            //            self.childVC.editView.layer.cornerRadius = 15
+            //            self.childVC.editView.layer.borderWidth = 1
+            //            self.childVC.editView.clipsToBounds = true
         }
         
     }
@@ -217,15 +244,15 @@ class ProjectViewController: BaseViewController {
     
     func dismissChildViewController() {
         UIView.animate(withDuration: 0.4) {
-               
-                self.childVC.view.frame.origin.y = self.view.frame.maxY
-                
-            } completion: { _ in
-                TabBarViewController.Instance?.tabBAr.isHidden = false
-                self.childVC.removeFromParent()
-                self.childVC.view.removeFromSuperview()
-            }
+            
+            self.childVC.view.frame.origin.y = self.view.frame.maxY
+            
+        } completion: { _ in
+            TabBarViewController.Instance?.tabBAr.isHidden = false
+            self.childVC.removeFromParent()
+            self.childVC.view.removeFromSuperview()
         }
+    }
     
     
     func setupProject(){
@@ -251,7 +278,7 @@ class ProjectViewController: BaseViewController {
 
 extension ProjectViewController: UICollectionViewDelegate , UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return filteredData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -260,6 +287,7 @@ extension ProjectViewController: UICollectionViewDelegate , UICollectionViewData
         
         let card = collectionView.dequeueReusableCell(withReuseIdentifier: "ProjectCell", for: indexPath) as! ProjectCollectionViewCell
         card.addprojectAttribute()
+        card.projectName.text = filteredData[indexPath.row]
         card.shadow()
         return card
     }
@@ -270,9 +298,9 @@ extension ProjectViewController: UICollectionViewDelegate , UICollectionViewData
         
         UIView.animate(withDuration: 0.4, animations: {
             self.projectDetailView.frame = self.view.bounds
-         },completion: { _ in
-//              self.employeeListCollectionView.isUserInteractionEnabled = true
-            })
+        },completion: { _ in
+            //              self.employeeListCollectionView.isUserInteractionEnabled = true
+        })
         
         setUpnavigationForProject()
     }
@@ -296,6 +324,34 @@ extension ProjectViewController : UITableViewDelegate , UITableViewDataSource{
     }
     
     
+    
+    
+    
 }
 
-
+extension ProjectViewController : UISearchBarDelegate{
+    
+   
+        
+        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            
+            
+            if searchText.isEmpty{
+                filteredData = DummyData.Instance.projectName
+                noDataLabel.isHidden = true
+            }else{
+                filteredData = DummyData.Instance.projectName.filter { $0.lowercased().contains(searchText.lowercased()) }
+                
+                if filteredData.isEmpty {
+                    noDataLabel.text = "No Data Found"
+                    noDataLabel.isHidden = false
+    
+                }else{
+                    noDataLabel.isHidden = true
+                }
+               
+            }
+            ProjectCollectionView.reloadData()
+                
+            }
+}

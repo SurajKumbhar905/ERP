@@ -23,7 +23,7 @@ extension EmployeeCollectionViewCell{
     func addEmployeeAttribute(){
         let card = self
         
-        card.employeeName.text = "Suraj Kumbhar"
+//        card.employeeName.text = "Suraj Kumbhar"
         card.employeeName.textColor = UIColor.text.textColorLevel1
         card.employeeProjectName.textColor = UIColor.text.textColorLevel3
         card.employeeCard.layer.cornerRadius = 15
